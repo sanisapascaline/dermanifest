@@ -12,7 +12,7 @@
             </p>
             <div>
               <a href="<?= BASEURL;?>/login" class="btn btn-primary-native">Log In</a>
-              <a href="<?= BASEURL;?>/register" class="btn btn-secondary-native secondary-color">Register</a>
+              <a href="<?= BASEURL;?>/register" class="btn btn-secondary-native secondary-color-light">Register</a>
             </div>          
           </div>
           
@@ -27,22 +27,22 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="#" class="d-block w-100" alt="...">
+                <img src="<?= IMGURL; ?>/hero-1.svg" class="d-block w-100" alt="Visit Dermanifest on Shopee">
               </div>
               <div class="carousel-item">
-                <img src="#" class="d-block w-100" alt="...">
+                <img src="<?= IMGURL; ?>/hero-2.svg" class="d-block w-100" alt="Dermanifest Aromatherapy Candles New Edition">
               </div>
               <div class="carousel-item">
-                <img src="#" class="d-block w-100" alt="...">
+                <img src="<?= IMGURL; ?>/hero-3.svg" class="d-block w-100" alt="Dermanifest Organic Beauty Mask">
               </div>
               <div class="carousel-item">
-                <img src="#" class="d-block w-100" alt="...">
+                <img src="<?= IMGURL; ?>/hero-4.svg" class="d-block w-100" alt="Dermanifest Etawa Goat Milk Mask">
               </div>
               <div class="carousel-item">
-                <img src="#" class="d-block w-100" alt="...">
+                <img src="<?= IMGURL; ?>/hero-5.svg" class="d-block w-100" alt="Dermanifest Scented Candle Classic Edtion">
               </div>
               <div class="carousel-item">
-                <img src="#" class="d-block w-100" alt="...">
+                <img src="<?= IMGURL; ?>/hero-6.svg" class="d-block w-100" alt="Dermanifest Candlenut Oil">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -99,7 +99,7 @@
 
       <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="vmage-about">
-          <img src="#" alt="">
+          <img src="<?= IMGURL; ?>/about-pics.svg" alt="">
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@
     </div>
     <div class="row row-product swiper-wrapper mb-5" id="scrollhere">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 swiper-slide">
-        <a href="<?= BASEURL; ?>/product/idnyadisini">
+        <a href="#">
           <div class="card swiper-slide">
             <div class="image-product">
               <div class="hover-desc">
@@ -139,18 +139,13 @@
               </div>
 
               <div class="price-rate">
-                <div class="product-rate">
-                    <i class='bx bxs-star'></i>
-                    <p>4.5</p>
-                </div>
-                <!--p class="disc-price" >Rp.350.000</p-->
                 <div class="product-price">
                   <p>Rp30.000,-</p>
                 </div>
               </div>
 
-              <a href="<?= BASEURL; ?>/product/idnyadisini" class="btn btn-buy btn-cart">
-                  <box-icon type='solid' name='cart-add'><i class='bx bxs-cart-add' style="width: 20px; height: auto;"></i></box-icon> Add to Cart 
+              <a href="#" class="btn btn-buy btn-cart">
+                <box-icon type='solid' name='cart-add'><i class='bx bxs-cart-add' style="width: 20px; height: auto;"></i></box-icon> Add to Cart 
               </a>
             </div>
           </div>
@@ -183,27 +178,21 @@
             </p>
         </div>
         <div class="button-buy">
-          <a href="<?= BASEURL; ?>/product/index" class="btn btn-buy">Shop Now</a>
+          <a href="#" class="btn btn-buy">Shop Now</a>
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 col-12 col-img">
-          <img src="#" alt="">
+        <img src="<?= IMGURL; ?>/buy-pic.svg" alt="Dermanifest Organic Beauty Mask">
       </div>
     </div>
 
     <div class="row eshop-row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 col-eshop">
         <div class="image-item">
-          <img src="#" alt="">
+          <img src="<?= IMGURL; ?>/shopee.svg" alt="">
         </div>
         <div class="image-item">
-          <img src="#" alt="">
-        </div>
-        <div class="image-item">
-          <img src="#" alt="">
-        </div>
-        <div class="image-item">
-          <img src="#" alt="">
+          <img src="<?= IMGURL; ?>/instagram.svg" alt="">
         </div>
       </div>
     </div>
