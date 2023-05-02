@@ -3,7 +3,9 @@
     <div class="row row-footer">
       <div class="col-lg-12 col-md-12 col-sm-12 col-footer">
         <div class="footer-logo">
-          <img src="#" class="img-footer mb-4" alt="">
+          <div class="d-flex justify-content-center">
+            <img src="<?= IMGURL; ?>/logo-light.svg" class="img-footer mb-4" alt="">
+          </div>
           <p class="text-footer text-center mb-5">
             Thank you for trusting Demanifest as your skincare choice. We will always provide the best service for your skin health, no matter the age, skin, or anything else.
           </p>
