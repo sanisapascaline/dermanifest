@@ -1,7 +1,8 @@
 <?php
 
 // URL
-define('BASEURL', 'http://localhost/dermanifest_mvc/public'); 
+define('BASEURL', 'http://localhost/dermanifest/public');
+define('IMGURL', 'http://localhost/dermanifest/public/assets/img');
 
 // DATABASE
 define('DB_HOST', 'localhost');
