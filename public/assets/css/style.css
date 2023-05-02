@@ -116,7 +116,7 @@ img {
 }
 .text-hero {
     color: #FFFFFF;
-    background-color: #333d2930;
+    background-color: #333d29d4;
     padding: 94px 34px;
     border-radius: 20px;
     max-width: 520px;
@@ -142,6 +142,10 @@ img {
 }
 .text-hero h2 {
     color: #ffffff;
+}
+.carousel-item-start,
+.carousel-item-end {
+  width: 84% !important;
 }
 
 /* spacer */
@@ -358,6 +362,10 @@ img {
     color: #333d29;
     background-color: #C8CAB2;
 }
+.secondary-color-light {
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
 .col-img {
     text-align: end;
 }
@@ -386,14 +394,13 @@ img {
     color: white !important;
 }
 .col-footer {
-    padding-top: 80px;
+    padding-top: 30px;
     padding-bottom: 80px;
 }
 .sec-footer {
     background-color: #656D4A;
 }
 .footer-logo img {
-    height: 40px;
     width: auto;
 }
 .footer-logo p {
