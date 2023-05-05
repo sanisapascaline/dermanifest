@@ -3,6 +3,7 @@
 // URL
 define('BASEURL', 'http://localhost/dermanifest/public');
 define('IMGURL', 'http://localhost/dermanifest/public/assets/img');
+define('ADMINURL', 'http://localhost/dermanifest/public/admin');
 
 // DATABASE
 define('DB_HOST', 'localhost');
