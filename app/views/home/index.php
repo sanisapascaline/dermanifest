@@ -5,15 +5,26 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="hero-col">
           <div class="text-hero">
-            <h2>Hello, Customer Name</h2>
-            <p>
-              Take a litte journey today</br>
-              and search anything you want.
-            </p>
-            <div>
-              <a href="<?= BASEURL;?>/login" class="btn btn-primary-native">Log In</a>
-              <a href="<?= BASEURL;?>/register" class="btn btn-secondary-native secondary-color-light">Register</a>
-            </div>          
+          <?php if (isset($_SESSION['customer']['username']) AND isset($_SESSION['customer']['name'])) :?>
+              <h2>Hello, <?php echo $_SESSION['customer']['name']; ?></h2>
+              <p>
+                Take a litte journey today</br>
+                and search anything you want.
+              </p>
+            <?php else : ?>
+              <h2>
+                Welcome to</br>Dermanifest!
+              </h2>
+              <p>
+                Take a litte journey here</br>
+                and we will guide you manifest your inner-out tranquilty.
+              </p>
+              <br>
+              <div>
+                <a href="<?= BASEURL;?>/login" class="btn btn-primary-native">Log In</a>
+                <a href="<?= BASEURL;?>/register" class="btn btn-secondary-native secondary-color">Register</a>
+              </div>
+            <?php endif; ?>            
           </div>
           
           <div id="carouselExampleIndicators" class="image-hero carousel slide" data-bs-ride="carousel" data-bs-touch="true">
