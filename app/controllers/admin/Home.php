@@ -13,7 +13,10 @@ class Home extends Controller {
   {
     $data['judul'] = 'Home | Dermanifest Admin';
     
+    $this->view('layout/admin/header', $data);
+    $this->view('layout/admin/sidebar');
     $this->viewAdmin('home/index', $data);
+    $this->view('layout/admin/footer');
   }
 }
 ?>
