@@ -44,8 +44,18 @@
               </span>
             </li>
             <li class="nav-item me-4">
-              <a class="nav-link" href="#"><i class='bx bx-user'></i></a>
+            <?php if (!empty($_SESSION['customer']['picture'])) : ?>
+              <a class="nav-link" href="<?= BASEURL; ?>/profile"><img width="20px" height="20px"
+                  src="<?=$_SESSION['customer']['picture'];?>" referrerpolicy="no-referrer" style="width: 25px; border-radius: 50px;" img-circle img-responsive img-thumbnail></a>
+              <?php else: ?>
+              <a class="nav-link" href="<?= BASEURL; ?>/profile"><i class='bx bx-user' ></i></a>
+              <?php endif ?>
             </li>
+            <?php if (isset($_SESSION['customer']['username']) AND isset($_SESSION['customer']['name'])) : ?>
+            <li class="nav-item me-4">
+              <a class="nav-link" href="<?= BASEURL; ?>/logout">Logout</a>
+            </li>   
+            <?php endif; ?>
           </div>
         </ul>
       </div>
