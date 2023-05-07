@@ -22,7 +22,7 @@
               <br>
               <div>
                 <a href="<?= BASEURL;?>/login" class="btn btn-primary-native">Log In</a>
-                <a href="<?= BASEURL;?>/register" class="btn btn-secondary-native secondary-color">Register</a>
+                <a href="<?= BASEURL;?>/register" class="btn btn-secondary-native secondary-color-light">Register</a>
               </div>
             <?php endif; ?>            
           </div>
