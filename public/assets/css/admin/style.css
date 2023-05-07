@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	
+	scroll-behavior: smooth;
+}
+
+h1, h2, h3,
+.card-value {
+  font-family: 'Manrope', sans-serif;
+}
+
+body {
+	background: #EFEFDC;
+	overflow-x: hidden;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+}
+
+.my-navbar {
+	position: fixed;
+	width: 300px;
+	height: 100%;
+	background: linear-gradient(to right bottom, #333d29, #3c462f, #454f35, #4e583c, #586142, #5d6646, #636a4a, #686f4e, #6a7151, #6c7254, #6e7457, #70765a);
+	transition: 0.5s;
+	overflow: hidden;
+	box-shadow: 5px 0px 12px 2px #b5b5b5;
+}
+
+.navi.active {
+	
+	width: 60px;
+}
+
+.my-navbar ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%; 
+}
+
+.my-navbar ul li {
+	position: relative;
+	width: 100%;
+	list-style: none;
+	transition: 0.1s;
+	color: #EFEFDC;
+}
+
+.my-navbar ul li:hover {
+	background: #A4AC86;
+}
+
+.my-navbar ul li:nth-child(1) {
+	margin-bottom: 20px;
+}
+
+.my-navbar ul li:nth-child(1):hover { 
+	
+	background: transparent;
+	color: #EFEFDC;
+}
+
+.my-navbar ul li a {
+	position: relative;
+	display: block;
+	width: 100%;
+	display: flex;
+	text-decoration: none;
+	color: #EFEFDC;
+}
+
+.my-navbar ul li a:hover {
+	color: #57004a;
+	
+}
+
+.my-navbar ul li a:nth-child(1):hover { 
+	background: transparent;
+	color: #EFEFDC;
+}
+
+.my-navbar ul li a .icon {
+	position: relative;
+	display: block;
+	min-width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+
+.my-navbar ul li a .icon .fa {
+	line-height: 60px;
+	color: #EFEFDC;
+	font-size: 24px;
+}
+
+.my-navbar ul li a .title {
+	padding: 0 10px;
+	white-space: nowrap;
+	
+	position: relative;
+	display: block;
+	height: 60px;
+	line-height: 60px;
+}
+
+.sticky-div {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+.main {
+	position: absolute;
+	width: calc(100% - 300px); 
+	left: 300px; 
+	min-height: 100vh;
+	transition: 0.5s;
+}
+
+.main.active {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+.main .topbar {
+	width: 100%;
+	background: white;
+	height: 60px;
+	padding-left: 0 10px;
+	display: flex;
+	justify-content: space-between; 
+	box-shadow: 0px 5px 12px #b5b5b5;
+}
+
+.toggle {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	border: 2px solid #293121;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.toggle::before {
+	content: '\f0c9';
+	font-family: fontAwesome;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	line-height: 60px;
+	font-size: 24px;
+	text-align: center;
+	color: #293121;
+}
+
+.logout {
+	position: relative;
+	margin: 17.5px 0px;
+	right: 20px;
+	box-shadow: 0px 6px 8px 0px #b5b5b5;
+}
+
+.logout a {
+	position: relative;
+	text-decoration: none;
+	border-radius: 5px;
+	overflow: x;
+	cursor: pointer;
+	padding: 4px 6px;
+	color: #EFEFDC;
+	transition: 0.2s;
+}
+
+.logout a:hover {
+	transition: 0.2s;
+	background: #293121;
+}
+
+.content {
+	background: #fafafa;
+	margin: 15px;
+	border-radius: 10px;
+	padding: 10px;
+	min-height: 560px;
+}
+
+.content hr {
+	border-top: 1px solid #333D29;
+}
+
+.mt-20px {
+	margin-top: 20px;
+}
+
+/* buttons */
+.btn {
+	background-color: #30b0ff; /*blue*/
+	border: none;
+	color: white;
+	padding: 5px;
+	border: 1px solid #30b0ff;
+	border-radius: 5px;
+	box-shadow: 0px 3px 8px 0px #b5b5b5;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.btn-primary-native {
+	background: #333D29;
+	border: 2px solid #333D29;
+}
+
+.btn-primary {
+	background-color: #007bff; /*blue*/
+	border: 2px solid #007bff;
+}
+
+.btn-danger {
+	background-color: #dc3545; /*red*/
+	border: 2px solid #dc3545;
+}
+
+.btn-positive {
+	border: 2px solid #28A745;
+	background-color: #28A745; /*green*/
+}
+
+.btn-info {
+	border: 2px solid #17A2B8;
+	background-color: #17A2B8; /*green*/
+}
+
+.btn-yellow {
+	color: #000;
+	background-color: #ffc107;
+	border-color: #ffc107;
+}
+
+.btn-sum {
+	background-color: #198754;
+	border-color: #198754;
+}
+
+.btn:hover {
+	transition: 0.2s;
+	background-color: white; /*blue*/
+	color: black;
+}
+
+/* admin home */
+.home-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 5px;
+  width: 22vw;
+  background: #E5E9DB;
+  box-shadow: 0px 4px 9px rgba(169, 169, 169, 0.26);
+  border-radius: 10px; 
+  padding: 18px 12px;
+}
+
+.card-icon {
+  font-size: 44px;
+}
+
+.card-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-value {
+  font-size: 20px;
+}
