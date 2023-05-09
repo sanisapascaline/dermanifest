@@ -21,21 +21,23 @@ class Register extends Controller {
 
   public function insert() {
     if($_POST['password'] == $_POST['password_repeat']) {	
-			$customer_row = $this->model('Register_model')->checkUsername($_POST['username']);
-			$admin_row = $this->model('Register_model')->checkAdminUsername($_POST['username']);
+			$customer_username_row = $this->model('Register_model')->checkUsername($_POST['username']);
+			$admin_username_row = $this->model('Register_model')->checkAdminUsername($_POST['username']);
+			$customer_email_row = $this->model('Register_model')->checkEmail($_POST['email']);
+			$admin_email_row = $this->model('Register_model')->checkAdminEmail($_POST['email']);
 
-			if ($customer_row['username'] == $_POST['username'] || $admin_row['username'] == $_POST['username']) {
+			if ($customer_username_row['username'] == $_POST['username'] || $admin_username_row['username'] == $_POST['username']) {
 				Flasher::setFlash('Failed.','Username has already been used.','danger');
 				header('location: '. BASEURL . '/register'); 
 				exit;	
-			} elseif ($customer_row['email'] == $_POST['email'] || $admin_row['email'] == $_POST['email']) {
+			} elseif ($customer_email_row['email'] == $_POST['email'] || $admin_email_row['email'] == $_POST['email']) {
         Flasher::setFlash('Failed.','Email has already been used.','danger');
 				header('location: '. BASEURL . '/register'); 
 				exit;	
       } else {
 				if ($this->model('Register_model')->doRegister($_POST) > 0) {
-					$customer_row = $this->model('Login_model')->doLogin($_POST);
-					$_SESSION['customer'] = $customer_row;
+					$customer_username_row = $this->model('Login_model')->doLogin($_POST);
+					$_SESSION['customer'] = $customer_username_row;
 					$_SESSION['customer_login'] = "customer_is_logged_in";
 					header('location: '. BASEURL . '');
 					exit;			
