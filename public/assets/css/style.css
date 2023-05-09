@@ -521,3 +521,47 @@ img {
     color: #81b4ff !important;
     font-weight: 600;
 }
+
+/* profile */
+.account-row {
+    justify-content: space-between;
+}
+.account,
+.history {
+    padding: 15px;
+}
+.account {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.accdetail >*,
+.bankmetode {
+    margin-bottom: 10px !important;
+}
+.accdetail h5 
+{
+    color: #333d29;
+    font-size: 18px;
+    padding: 6px 10px;
+    background-color: #E5E9DB;
+    border-radius: 10px;
+}
+.image-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-account img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 30px;
+}
+.history {
+    margin-bottom: 50px;
+}
+.text-orange {
+    color: rgb(255, 208, 0) !important;
+}
+.btn-info {
+    color: #fff !important;
+}
