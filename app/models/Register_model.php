@@ -23,6 +23,20 @@ class Register_model {
     return $this->db->single();
   }
 
+  public function checkEmail($email) {
+    $this->db->query("SELECT * FROM " . $this->table . " WHERE email = :email");
+    $this->db->bind('email', $email);
+
+    return $this->db->single();
+  }
+  
+  public function checkAdminEmail($email) {
+    $this->db->query("SELECT * FROM admin WHERE email = :email");
+    $this->db->bind('email', $email);
+
+    return $this->db->single();
+  }
+
   public function doRegister($data) {
     $query = "INSERT INTO " . $this->table . " 
               (name, username, email, phone, password)
