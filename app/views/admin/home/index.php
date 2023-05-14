@@ -1,33 +1,33 @@
 <div class="content">
-  <h2>Categories</h2>
+  <h2>Home</h2>
   <hr>
-  <div class="home-cards">
-    <div class="card">
-      <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+  <div class="row">
+    <div class="col-md my-card">
+      <div class="card-icon"><h1><i class="fa-solid fa-users"></i></h1></div>
       <div class="card-desc">
-        <div class="card-value">20</div>
-        <div class="card-value-desc">Customers</div>
+        <div class="card-value text-end"><h5>20</h5></div>
+        <div class="card-value-desc text-end"><h3>Customers</h3></div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+    <div class="col-md my-card">
+      <div class="card-icon"><h1><i class="fa-solid fa-cart-shopping"></i></h1></div>
       <div class="card-desc">
-        <div class="card-value">14</div>
-        <div class="card-value-desc">Overrall Orders</div>
+        <div class="card-value text-end"><h5>14</h5></div>
+        <div class="card-value-desc text-end"><h3>Overrall Orders</h3></div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-icon"><i class="fa-solid fa-clock"></i></div>
+    <div class="col-md my-card">
+      <div class="card-icon"><h1><i class="fa-solid fa-clock"></i></h1></div>
       <div class="card-desc">
-        <div class="card-value">2</div>
-        <div class="card-value-desc">Waiting Orders</div>
+        <div class="card-value text-end"><h5>2</h5></div>
+        <div class="card-value-desc text-end"><h3>Waiting Orders</h3></div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+    <div class="col-md my-card">
+      <div class="card-icon"><h1><i class="fa-solid fa-money-bill-trend-up"></i></h1></div>
       <div class="card-desc">
-        <div class="card-value">Rp1.000.000,-</div>
-        <div class="card-value-desc">Gross Sales</div>
+        <div class="card-value text-end"><h5>Rp1.000.000,-</h5></div>
+        <div class="card-value-desc text-end"><h3>Gross Sales</h3></div>
       </div>
     </div>
   </div>
