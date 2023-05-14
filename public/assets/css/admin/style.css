@@ -9,9 +9,17 @@
 	scroll-behavior: smooth;
 }
 
-h1, h2, h3,
-.card-value {
+h1, h2, h3 {
   font-family: 'Manrope', sans-serif;
+	font-weight: 700;
+	color: #333D29;
+	margin: unset;
+}
+
+h4, h5 {
+	font-family: 'Manrope', sans-serif;
+	font-weight: 500;
+	margin: unset;
 }
 
 body {
@@ -19,7 +27,11 @@ body {
 	overflow-x: hidden;
 }
 
-.container {
+.row {
+	--bs-gutter-x: unset;
+}
+
+.my-container {
 	position: relative;
 	width: 100%;
 }
@@ -32,6 +44,10 @@ body {
 	transition: 0.5s;
 	overflow: hidden;
 	box-shadow: 5px 0px 12px 2px #b5b5b5;
+}
+
+.my-navbar ul {
+	padding: unset;
 }
 
 .navi.active {
@@ -112,6 +128,11 @@ body {
 	line-height: 60px;
 }
 
+.title-logo img {
+	margin-top: 20px;
+	max-width: 50px;
+}
+
 .sticky-div {
 	position: -webkit-sticky;
 	position: sticky;
@@ -139,6 +160,7 @@ body {
 	display: flex;
 	justify-content: space-between; 
 	box-shadow: 0px 5px 12px #b5b5b5;
+	min-width: 250px;
 }
 
 .toggle {
@@ -162,6 +184,10 @@ body {
 	color: #293121;
 }
 
+.active .title-logo h3 {
+	display: none;
+}
+
 .logout {
 	position: relative;
 	margin: 17.5px 0px;
@@ -173,7 +199,7 @@ body {
 	position: relative;
 	text-decoration: none;
 	border-radius: 5px;
-	overflow: x;
+	overflow: hidden;
 	cursor: pointer;
 	padding: 4px 6px;
 	color: #EFEFDC;
@@ -191,6 +217,7 @@ body {
 	border-radius: 10px;
 	padding: 10px;
 	min-height: 560px;
+	min-width: 250px;
 }
 
 .content hr {
@@ -203,7 +230,7 @@ body {
 
 /* buttons */
 .btn {
-	background-color: #30b0ff; /*blue*/
+	background-color: #30b0ff; /blue/
 	border: none;
 	color: white;
 	padding: 5px;
@@ -225,23 +252,23 @@ body {
 }
 
 .btn-primary {
-	background-color: #007bff; /*blue*/
+	background-color: #007bff; /blue/
 	border: 2px solid #007bff;
 }
 
 .btn-danger {
-	background-color: #dc3545; /*red*/
+	background-color: #dc3545; /red/
 	border: 2px solid #dc3545;
 }
 
 .btn-positive {
 	border: 2px solid #28A745;
-	background-color: #28A745; /*green*/
+	background-color: #28A745; /green/
 }
 
 .btn-info {
 	border: 2px solid #17A2B8;
-	background-color: #17A2B8; /*green*/
+	background-color: #17A2B8; /green/
 }
 
 .btn-yellow {
@@ -257,7 +284,7 @@ body {
 
 .btn:hover {
 	transition: 0.2s;
-	background-color: white; /*blue*/
+	background-color: white; /blue/
 	color: black;
 }
 
@@ -269,11 +296,11 @@ body {
   margin-bottom: 20px;
 }
 
-.card {
+.my-card {
   display: flex;
   justify-content: space-between;
   margin-right: 5px;
-  width: 22vw;
+	margin-bottom: 5px;
   background: #E5E9DB;
   box-shadow: 0px 4px 9px rgba(169, 169, 169, 0.26);
   border-radius: 10px; 
@@ -281,7 +308,7 @@ body {
 }
 
 .card-icon {
-  font-size: 44px;
+  align-self: center;
 }
 
 .card-desc {
@@ -289,11 +316,6 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-}
-
-.card-value {
-  font-size: 24px;
-  font-weight: bold;
 }
 
 .card-value {
