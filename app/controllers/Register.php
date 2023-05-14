@@ -3,8 +3,9 @@
 class Register extends Controller {
   private $db;
 
-  public function __construct() {
-    $this->db = new Database;
+  public function __construct() 
+	{
+	$this->db = new Database;
 		if (isset($_SESSION['admin_login']) OR isset($_SESSION['customer_login'])) {
 			header('location: '. BASEURL);
 			exit;
@@ -36,8 +37,10 @@ class Register extends Controller {
 				exit;	
       } else {
 				if ($this->model('Register_model')->doRegister($_POST) > 0) {
+					$latest_id = $this->db->lastInsertId();
 					$customer_username_row = $this->model('Login_model')->doLogin($_POST);
 					$_SESSION['customer'] = $customer_username_row;
+					$_SESSION['customer']['id_customer'] = $latest_id;
 					$_SESSION['customer_login'] = "customer_is_logged_in";
 					header('location: '. BASEURL . '');
 					exit;			

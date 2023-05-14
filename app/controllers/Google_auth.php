@@ -3,8 +3,11 @@
 require_once('../vendor/autoload.php');
 
 class Google_Auth extends Controller {
+  private $db;
+
   public function __construct()
 	{	
+	  $this->db = new Database;
 		if(isset($_SESSION['customer_login'])) {
 			header('location: '. BASEURL);
 			exit;
@@ -43,7 +46,9 @@ class Google_Auth extends Controller {
         header('Location: ' . filter_var(BASEURL, FILTER_SANITIZE_URL));
       } else {
         $email_explode = explode('@', $email);
-        $username = $email_explode[0];
+        date_default_timezone_set("Asia/Jakarta");
+        $date_created = date('dmYHis');                                
+        $username = $email_explode[0] . "_" . $date_created;
 
         $registerData = [
           'name' => $nama,
@@ -53,8 +58,10 @@ class Google_Auth extends Controller {
         ];
 
 				if ($this->model('Google_Auth_model')->doGoogleEmailRegister($registerData) > 0) {
-          session_start();         
+          session_start();
+					$latest_id = $this->db->lastInsertId();
           $_SESSION['customer'] = $registerData;
+					$_SESSION['customer']['id_customer'] = $latest_id;
           $_SESSION['customer_login'] = "customer_is_logged_in";
           header('Location: ' . filter_var(BASEURL, FILTER_SANITIZE_URL));
         } else {
