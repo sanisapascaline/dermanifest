@@ -230,7 +230,7 @@ body {
 
 /* buttons */
 .btn {
-	background-color: #30b0ff; /blue/
+	background-color: #30b0ff; 
 	border: none;
 	color: white;
 	padding: 5px;
@@ -252,23 +252,23 @@ body {
 }
 
 .btn-primary {
-	background-color: #007bff; /blue/
+	background-color: #007bff;
 	border: 2px solid #007bff;
 }
 
 .btn-danger {
-	background-color: #dc3545; /red/
+	background-color: #dc3545;
 	border: 2px solid #dc3545;
 }
 
 .btn-positive {
 	border: 2px solid #28A745;
-	background-color: #28A745; /green/
+	background-color: #28A745;
 }
 
 .btn-info {
 	border: 2px solid #17A2B8;
-	background-color: #17A2B8; /green/
+	background-color: #17A2B8;
 }
 
 .btn-yellow {
@@ -284,7 +284,7 @@ body {
 
 .btn:hover {
 	transition: 0.2s;
-	background-color: white; /blue/
+	background-color: white;
 	color: black;
 }
 
