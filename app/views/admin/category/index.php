@@ -18,35 +18,20 @@
         </tr>
       </thead>
       <tbody>
+        <?php 
+        $num = 1;
+        foreach ($data['category_list'] as $category) : 
+        ?>
         <tr>
-          <td>1.</td>
-          <td>id</td>
-          <td>name</td>    
+          <td><?= $num; ?></td>
+          <td><?= $category['id_category']; ?></td>
+          <td><?= htmlspecialchars($category['name']); ?></td>    
           <td>
             <a href="#" class="btn btn-primary">Update</a>
             <a href="#" class="btn btn-danger">Delete</a>
           </td>
         </tr>
-
-        <tr>
-          <td>2.</td>
-          <td>id2</td>
-          <td>name2</td>    
-          <td>
-            <a href="#" class="btn btn-primary">Update</a>
-            <a href="#" class="btn btn-danger">Delete</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>3.</td>
-          <td>id3</td>
-          <td>name3</td>    
-          <td>
-            <a href="#" class="btn btn-primary">Update</a>
-            <a href="#" class="btn btn-danger">Delete</a>
-          </td>
-        </tr>
+        <?php endforeach;?>
       </tbody>
     </table>
   </div>
