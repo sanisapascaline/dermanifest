@@ -12,6 +12,7 @@ class Category extends Controller {
   public function index() 
   {
     $data['judul'] = 'Category | Dermanifest Admin';
+    $data['category_list'] = $this->model('Category_model')->getAllCategory();
     
     $this->view('layout/admin/header', $data);
     $this->view('layout/admin/sidebar');
