@@ -19,5 +19,15 @@ class Category extends Controller {
     $this->viewAdmin('category/index', $data);
     $this->view('layout/admin/footer');
   }
+
+  public function add() 
+  {
+    $data['judul'] = 'Add Category | Dermanifest Admin';
+
+    $this->view('layout/admin/header', $data);
+    $this->view('layout/admin/sidebar');
+    $this->viewAdmin('category/add', $data);
+    $this->view('layout/admin/footer');
+  }
 }
 ?>
