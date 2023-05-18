@@ -27,7 +27,7 @@
           <td><?= $category['id_category']; ?></td>
           <td><?= htmlspecialchars($category['name']); ?></td>    
           <td>
-            <a href="#" class="btn btn-primary">Update</a>
+            <a href="<?= ADMINURL; ?>/category/update/<?= $category['id_category']; ?>" class="btn btn-primary">Update</a>
             <a href="#" class="btn btn-danger">Delete</a>
           </td>
         </tr>
