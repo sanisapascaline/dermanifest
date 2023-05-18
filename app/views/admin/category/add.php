@@ -9,6 +9,6 @@
       <label class="form-label">Category Name</label>
       <input type="text" class="form-control" name="name" required>
     </div>
-    <button type="submit" class="btn-save btn btn-positive">Add Product</button>
+    <button type="submit" class="btn-save btn btn-positive">Add Category</button>
   </form>
 </div>
