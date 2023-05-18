@@ -30,6 +30,17 @@ class Category extends Controller {
     $this->view('layout/admin/footer');
   }
 
+  public function update($id) 
+  {
+    $data['judul'] = 'Update Category | Dermanifest Admin';
+    $data['category'] = $this->model('Category_model')->getCategoryById($id);
+
+    $this->view('layout/admin/header', $data);
+    $this->view('layout/admin/sidebar');
+    $this->viewAdmin('category/update', $data);
+    $this->view('layout/admin/footer');
+  }
+
   public function insert() 
   {
     if ($this->model('Category_model')->insertDataCategory($_POST) > 0) {
