@@ -15,5 +15,16 @@ class Category_model {
     
     return $this->db->resultSet();
   }
+
+  public function insertDataCategory($data) 
+  {
+    $query = "INSERT INTO " . $this->table . " (name) VALUES (:name)";
+    $this->db->query($query);
+    $this->db->bind('name', $data['name']);
+    
+    $this->db->execute();
+
+    return $this->db->rowCount();
+  }
 }
 ?>
