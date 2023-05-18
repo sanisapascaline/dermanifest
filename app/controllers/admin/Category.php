@@ -29,5 +29,18 @@ class Category extends Controller {
     $this->viewAdmin('category/add', $data);
     $this->view('layout/admin/footer');
   }
+
+  public function insert() 
+  {
+    if ($this->model('Category_model')->insertDataCategory($_POST) > 0) {
+      Flasher::setFlash('Success.', 'Category: <strong>' . $_POST['name'] . '</strong> has been added.', 'success');
+      header('Location:' . ADMINURL .'/category');
+    } else {
+      Flasher::setFlash('Error.', 'Failed to add Category.', 'danger');
+      header('Location: ' . ADMINURL . '/category/add');
+      exit;
+    }
+  }
+
 }
 ?>
