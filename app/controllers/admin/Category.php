@@ -53,5 +53,18 @@ class Category extends Controller {
     }
   }
 
+  public function updateCategory()
+  {
+    $row = $this->model('Category_model')->getCategoryById($_POST['id_category']);
+    if ($this->model('Category_model')->updateDataCategory($_POST) > 0) {
+      Flasher::setFlash('Success.', 'Category: <strong>' . $row['name'] . '</strong> has been updated into <strong>' . $_POST['name'] . '.</strong>', 'success');      
+      header('Location:' . ADMINURL .'/category');
+      exit;
+    } else {
+      Flasher::setFlash('Error.', 'Failed to update Category.', 'danger');
+      header('Location: ' . ADMINURL . '/category/update/' . $_POST['id_category']);
+      exit;
+    }
+  }
 }
 ?>
