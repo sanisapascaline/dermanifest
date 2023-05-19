@@ -34,5 +34,17 @@ class Category_model {
 
     return $this->db->rowCount();
   }
+
+  public function updateDataCategory($data)
+  {
+    $query = "UPDATE " . $this->table . " SET name = :name WHERE id_category = :id_category";
+		$this->db->query($query);
+		$this->db->bind('name',$data['name']);
+		$this->db->bind('id_category', $data['id_category']);
+		
+    $this->db->execute();
+
+		return $this->db->rowCount();
+  }
 }
 ?>
