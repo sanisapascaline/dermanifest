@@ -14,6 +14,6 @@
       <label class="form-label">Nama Category</label>
       <input type="text" class="form-control" name="name" value="<?= $data['category']['name']; ?>" required>
     </div>
-    <button type="submit" class="btn-save btn btn-positive">Update Category</button>
+    <button type="submit" class="btn btn-primary-native">Update Category</button>
   </form>
 </div>
