@@ -66,5 +66,19 @@ class Category extends Controller {
       exit;
     }
   }
+
+  public function delete($id)
+  {
+    $row = $this->model('Category_model')->getCategoryById($id);
+    if ($this->model('Category_model')->deleteDataCategory($id) > 0) {
+      Flasher::setFlash('Success.', 'Category: <strong>' . $row['name'] . '</strong> has been deleted', 'success');
+      header('Location: ' . ADMINURL . '/category');
+      exit;
+    } else {
+      Flasher::setFlash('Error.', 'Failed to delete Category', 'danger');
+      header('Location: ' . ADMINURL . '/category');
+      exit;
+    }
+  }
 }
 ?>
