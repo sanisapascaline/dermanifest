@@ -229,63 +229,48 @@ body {
 }
 
 /* buttons */
-.btn {
-	background-color: #30b0ff; 
-	border: none;
-	color: white;
-	padding: 5px;
-	border: 1px solid #30b0ff;
-	border-radius: 5px;
-	box-shadow: 0px 3px 8px 0px #b5b5b5;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-	transition: 0.2s;
-}
 
 .btn-primary-native {
-	background: #333D29;
+	padding: 12px 24px;
+	background-color: #333d29;
+	color: #FFFFFF;
+	font-weight: 600;
 	border: 2px solid #333D29;
 }
 
-.btn-primary {
-	background-color: #007bff;
-	border: 2px solid #007bff;
+.btn-primary-native-regular {
+	background-color: #333d29;
+	color: #FFFFFF;
 }
 
-.btn-danger {
-	background-color: #dc3545;
-	border: 2px solid #dc3545;
+.btn-secondary-native {
+	padding: 12px 24px;
+	background-color: unset;
+	color: #333d29;
+	border: 2px solid #333d29;
+	font-weight: 600;
 }
 
-.btn-positive {
-	border: 2px solid #28A745;
-	background-color: #28A745;
+.btn-primary-native:hover {
+    background-color: #293121;
+    color: #FFFFFF;
+    font-weight: 600;
 }
 
-.btn-info {
-	border: 2px solid #17A2B8;
-	background-color: #17A2B8;
+.btn-primary-native-regular:hover {
+	background-color: #293121;
+	color: #FFFFFF;
 }
 
-.btn-yellow {
-	color: #000;
-	background-color: #ffc107;
-	border-color: #ffc107;
+.btn-secondary-native:hover{
+	color: #333d29;
+	background-color: #C8CAB2;
+	font-weight: 600;
 }
 
-.btn-sum {
-	background-color: #198754;
-	border-color: #198754;
-}
-
-.btn:hover {
-	transition: 0.2s;
-	background-color: white;
-	color: black;
+.btn-secondary-native-regular:hover {
+	color: #333d29;
+	background-color: #C8CAB2;
 }
 
 /* admin home */
