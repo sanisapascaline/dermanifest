@@ -1,0 +1,99 @@
+<div class="content">
+  <h2>Products</h2>
+  <hr>
+  <div>
+    <?php Flasher::flash(); ?>
+  </div>
+  <div>
+    <a href="<?= ADMINURL;?>/product/add" class="btn btn-primary-native mb-3">Add Product</a>
+  </div>
+  <div class="table-wrapper" style="overflow-x: auto;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Id</th>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1.</td>
+          <td>id 1</td>
+          <td>image 1</td>
+          <td>name 1</td>
+          <td>category 1</td>       
+          <td>Rp10.000,-</td>
+          <td>stok 1</td>
+          <td>        
+            <a href="#" class="btn btn-info">
+              <span><i class="fa fa-circle-info me-1"></i></span>Detail
+            </a>
+            <a href="#" class="btn btn-primary">
+              <span><i class="fa-regular fa-pen-to-square me-1"></i></span>Update
+            </a>
+            <a href="#" class="btn btn-success">
+              <span><i class="fa-regular fa-images me-1"></i></span>Pictures
+            </a>
+            <a href="#" class="btn btn-danger">
+              <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2.</td>
+          <td>id 2</td>
+          <td>image 2</td>
+          <td>name 2</td>
+          <td>category 2</td>       
+          <td>Rp20.000,-</td>
+          <td>stok 2</td>
+          <td>        
+            <a href="#" class="btn btn-info">
+              <span><i class="fa fa-circle-info me-1"></i></span>Detail
+            </a>
+            <a href="#" class="btn btn-primary">
+              <span><i class="fa-regular fa-pen-to-square me-1"></i></span>Update
+            </a>
+            <a href="#" class="btn btn-success">
+              <span><i class="fa-regular fa-images me-1"></i></span>Pictures
+            </a>
+            <a href="#" class="btn btn-danger">
+              <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3.</td>
+          <td>id 3</td>
+          <td>image 3</td>
+          <td>name 3</td>
+          <td>category 3</td>       
+          <td>Rp30.000,-</td>
+          <td>stok 3</td>
+          <td>        
+            <a href="#" class="btn btn-info">
+              <span><i class="fa fa-circle-info me-1"></i></span>Detail
+            </a>
+            <a href="#" class="btn btn-primary">
+              <span><i class="fa-regular fa-pen-to-square me-1"></i></span>Update
+            </a>
+            <a href="#" class="btn btn-success">
+              <span><i class="fa-regular fa-images me-1"></i></span>Pictures
+            </a>
+            <a href="#" class="btn btn-danger">
+              <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
