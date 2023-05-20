@@ -46,5 +46,15 @@ class Category_model {
 
 		return $this->db->rowCount();
   }
+
+  public function deleteDataCategory($id)
+  {
+    $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_category = :id_category');
+		$this->db->bind('id_category', $id);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+  }
 }
 ?>
