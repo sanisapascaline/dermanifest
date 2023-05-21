@@ -30,5 +30,16 @@ class Product extends Controller {
     $this->viewAdmin('product/index', $data);
     $this->view('layout/admin/footer');
   }
+
+  public function add() 
+  {
+    $data['judul'] = 'Add Product | Dermanifest Admin';
+    $data['category_list'] = $this->model('Category_model')->getAllCategory();
+
+    $this->view('layout/admin/header', $data);
+    $this->view('layout/admin/sidebar');
+    $this->viewAdmin('product/add', $data);
+    $this->view('layout/admin/footer');
+  }
 }
 ?>
