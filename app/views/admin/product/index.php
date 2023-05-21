@@ -22,14 +22,18 @@
         </tr>
       </thead>
       <tbody>
+        <?php
+        $num = 1;
+        foreach ($data['product_list'] as $product) : 
+        ?>
         <tr>
-          <td>1.</td>
-          <td>id 1</td>
-          <td>image 1</td>
-          <td>name 1</td>
-          <td>category 1</td>       
-          <td>Rp10.000,-</td>
-          <td>stok 1</td>
+          <td><?= $num++; ?>.</td>
+          <td><?= $product['id_product']; ?></td>
+          <td><img src="<?= IMGURL; ?>/products/<?= $product['main_picture']; ?>" width="120" height="auto"></td>
+          <td><?= $product['product_name']; ?></td>
+          <td><?= $product['category_name']; ?></td>       
+          <td>Rp<?= number_format($product['price'],0,',','.'); ?>,-</td>
+          <td><?= $product['stock']; ?></td>
           <td>        
             <a href="#" class="btn btn-info">
               <span><i class="fa fa-circle-info me-1"></i></span>Detail
@@ -45,7 +49,7 @@
             </a>
           </td>
         </tr>
-
+        <?php endforeach;?>
         <tr>
           <td>2.</td>
           <td>id 2</td>
