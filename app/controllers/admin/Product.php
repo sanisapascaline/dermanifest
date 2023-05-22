@@ -41,5 +41,34 @@ class Product extends Controller {
     $this->viewAdmin('product/add', $data);
     $this->view('layout/admin/footer');
   }
+
+  public function insert()
+  {
+    echo var_dump($_POST);
+    echo var_dump($_FILES);
+    $picture_names = $_FILES['pictures']['name'];
+    $picture_tmp_names = $_FILES['pictures']['tmp_name'];
+    
+    if ($this->model('Product_model')->insertDataProduct($_POST, $picture_names) > 0) {
+      $id_last_product = $this->db->lastInsertId();
+      move_uploaded_file($picture_tmp_names[0], "../public/assets/img/products/" . $picture_names[0]);
+
+      foreach ($picture_names as $key => $name) {
+        $tmp_name = $picture_tmp_names[$key];
+        echo var_dump($name);
+
+        move_uploaded_file($tmp_name, "../public/assets/img/products/" . $name);
+
+        $this->model('Picture_model')->insertDataPictures($name, $id_last_product);
+      }
+
+      Flasher::setFlash('Success.', 'Product: <strong>' . $_POST['name'] . '</strong> has been added.', 'success');
+      header('Location:' . ADMINURL .'/product');
+    } else {
+      Flasher::setFlash('Error.', 'Failed to add Product.', 'danger');
+      header('Location: ' . ADMINURL . '/product/add');
+      exit;
+    }
+  }
 }
 ?>
