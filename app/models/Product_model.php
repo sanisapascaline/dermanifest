@@ -19,6 +19,18 @@ class Product_model {
     return $this->db->resultSet();
   }
 
+  public function getProductById($id)
+  {
+    $this->db->query("SELECT *, product.name AS product_name, category.name AS category_name 
+                      FROM " . $this->table . 
+                      " LEFT JOIN category 
+                      ON product.id_category = category.id_category
+                      WHERE id_product = :id_product");
+    $this->db->bind('id_product', $id);
+
+    return $this->db->single();
+  }
+
   public function insertDataProduct($data, $picture)
 	{
 		$query = "INSERT INTO " .$this->table . 
