@@ -45,6 +45,8 @@ class Product extends Controller {
   public function detail($id)
   {
     $data['judul'] = 'Detail Product | Dermanifest Admin';
+    $data['product'] = $this->model('Product_model')->getProductById($id);
+    $data['product_picture_list'] = $this->model('Picture_model')->getAllPictureByIdProduct($id);
 
     $this->view('layout/admin/header', $data);
     $this->view('layout/admin/sidebar');
