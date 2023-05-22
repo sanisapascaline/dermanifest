@@ -275,6 +275,10 @@ body {
 	background-color: #C8CAB2;
 }
 
+.table-header-on-left th {
+	width: 10vw;
+}
+
 /* admin home */
 .home-cards {
   display: flex;
