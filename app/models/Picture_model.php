@@ -9,6 +9,16 @@ class Picture_model {
 		$this->db = new Database;
 	}
 
+  public function getAllPictureByIdProduct($id)
+  {
+    $this->db->query("SELECT * FROM " . $this->table . " WHERE id_product = :id_product");
+    $this->db->bind('id_product', $id);
+    
+    $this->db->execute();
+
+    return $this->db->resultSet();
+  }
+
   public function insertDataPictures($picture_name, $id_product)
   {
     $query = "INSERT INTO " . $this->table . " (id_product, picture_name) VALUES (:id_product, :picture_name)";
