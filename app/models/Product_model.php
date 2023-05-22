@@ -18,5 +18,28 @@ class Product_model {
 
     return $this->db->resultSet();
   }
+
+  public function insertDataProduct($data, $picture)
+	{
+		$query = "INSERT INTO " .$this->table . 
+						 " (id_category, name, price, main_picture, stock, neto, description, instruction, ingredients, gross_weight) 
+						 VALUES 
+						 (:id_category, :name, :price, :main_picture, :stock, :neto, :description, :instruction, :ingredients, :gross_weight)";
+		$this->db->query($query);
+    $this->db->bind('id_category', $data['id_category']);
+    $this->db->bind('name', $data['name']);
+    $this->db->bind('price', $data['price']);
+    $this->db->bind('main_picture', $picture[0]);
+    $this->db->bind('stock', $data['stock']);
+    $this->db->bind('neto', $data['neto']);
+    $this->db->bind('description', $data['description']);
+    $this->db->bind('instruction', $data['instruction']);
+    $this->db->bind('ingredients', $data['ingredients']);
+    $this->db->bind('gross_weight', $data['gross_weight']);
+    
+    $this->db->execute();
+
+    return $this->db->rowCount();
+	}
 }
 ?>
