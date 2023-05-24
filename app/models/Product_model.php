@@ -41,7 +41,7 @@ class Product_model {
     $this->db->bind('id_category', $data['id_category']);
     $this->db->bind('name', $data['name']);
     $this->db->bind('price', $data['price']);
-    $this->db->bind('main_picture', $picture[0]);
+    $this->db->bind('main_picture', $picture);
     $this->db->bind('stock', $data['stock']);
     $this->db->bind('neto', $data['neto']);
     $this->db->bind('description', $data['description']);
