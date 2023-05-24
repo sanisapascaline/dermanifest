@@ -38,7 +38,7 @@
             <a href="<?= ADMINURL; ?>/product/detail/<?= $product['id_product']; ?>" class="btn btn-info">
               <span><i class="fa fa-circle-info me-1"></i></span>Detail
             </a>
-            <a href="#" class="btn btn-primary">
+            <a href="<?= ADMINURL; ?>/product/update/<?= $product['id_product']; ?>" class="btn btn-primary">
               <span><i class="fa-regular fa-pen-to-square me-1"></i></span>Update
             </a>
             <a href="#" class="btn btn-success">
