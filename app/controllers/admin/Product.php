@@ -54,6 +54,16 @@ class Product extends Controller {
     $this->view('layout/admin/footer');
   }
 
+  public function update($id) 
+  {
+    $data['judul'] = 'Detail Product | Dermanifest Admin';
+
+    $this->view('layout/admin/header', $data);
+    $this->view('layout/admin/sidebar');
+    $this->viewAdmin('product/update', $data);
+    $this->view('layout/admin/footer');
+  }
+
   public function insert()
   {
     echo var_dump($_POST);
