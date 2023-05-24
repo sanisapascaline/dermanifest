@@ -3,7 +3,6 @@
   <hr>
   <div>
     <?php Flasher::flash(); ?>
-    <?= var_dump($data['product'])?>
   </div>
   <form action="<?= ADMINURL; ?>/product/updateProduct" method="post" enctype="multipart/form-data">
   <div class="form-group mb-3">
