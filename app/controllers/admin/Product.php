@@ -65,23 +65,26 @@ class Product extends Controller {
   }
 
   public function insert()
-  {
-    echo var_dump($_POST);
-    echo var_dump($_FILES);
-    $picture_names = $_FILES['pictures']['name'];
+  {         
+    $picture_names =  $_FILES['pictures']['name'];
     $picture_tmp_names = $_FILES['pictures']['tmp_name'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $date_created = date('d-m-Y_H-i-s');
+    $main_picture = $date_created . "_" . $picture_names[0];
     
-    if ($this->model('Product_model')->insertDataProduct($_POST, $picture_names) > 0) {
+    if ($this->model('Product_model')->insertDataProduct($_POST, $main_picture) > 0) {
       $id_last_product = $this->db->lastInsertId();
-      move_uploaded_file($picture_tmp_names[0], "../public/assets/img/products/" . $picture_names[0]);
+      move_uploaded_file($picture_tmp_names[0], "../public/assets/img/products/" . $main_picture);
 
       foreach ($picture_names as $key => $name) {
         $tmp_name = $picture_tmp_names[$key];
-        echo var_dump($name);
+        
+        $additional_pictures = $date_created . "_" . $name;
 
-        move_uploaded_file($tmp_name, "../public/assets/img/products/" . $name);
+        move_uploaded_file($tmp_name, "../public/assets/img/products/" . $additional_pictures);
 
-        $this->model('Picture_model')->insertDataPictures($name, $id_last_product);
+        $this->model('Picture_model')->insertDataPictures($additional_pictures, $id_last_product);
       }
 
       Flasher::setFlash('Success.', 'Product: <strong>' . $_POST['name'] . '</strong> has been added.', 'success');
