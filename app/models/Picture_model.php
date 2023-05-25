@@ -19,14 +19,34 @@ class Picture_model {
     return $this->db->resultSet();
   }
 
+  public function getPictureByName($name)
+  {
+    $this->db->query("SELECT * FROM " . $this->table . " WHERE picture_name = :picture_name");
+    $this->db->bind('picture_name', $name);
+    
+    return $this->db->single();
+  }
+
   public function insertDataPictures($picture_name, $id_product)
   {
     $query = "INSERT INTO " . $this->table . " (id_product, picture_name) VALUES (:id_product, :picture_name)";
 		$this->db->query($query);
 
-
     $this->db->bind('id_product', $id_product);
     $this->db->bind('picture_name', $picture_name);
+
+    $this->db->execute();
+
+    return $this->db->rowCount();
+  }
+
+  public function updateMainPicture($picture_name, $id_picture)
+  {
+    $query = "UPDATE " . $this->table . " SET picture_name = :picture_name WHERE id_picture = :id_picture";
+    $this->db->query($query);
+
+    $this->db->bind('picture_name', $picture_name);
+    $this->db->bind('id_picture', $id_picture);
 
     $this->db->execute();
 
