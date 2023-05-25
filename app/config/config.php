@@ -11,4 +11,6 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'dermanifest_db');
 
+// PATH 
+define('PRODUCT_PICS', '../public/assets/img/products');
 ?>
