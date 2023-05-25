@@ -70,21 +70,18 @@ class Product extends Controller {
   {         
     $picture_names =  $_FILES['pictures']['name'];
     $picture_tmp_names = $_FILES['pictures']['tmp_name'];
-
-    date_default_timezone_set("Asia/Jakarta");
-    $date_created = date('d-m-Y_H-i-s');
-    $main_picture = $date_created . "_" . $picture_names[0];
+    $main_picture = $this->addTimeCreated($picture_names[0]);
     
     if ($this->model('Product_model')->insertDataProduct($_POST, $main_picture) > 0) {
       $id_last_product = $this->db->lastInsertId();
-      move_uploaded_file($picture_tmp_names[0], "../public/assets/img/products/" . $main_picture);
+      move_uploaded_file($picture_tmp_names[0], PRODUCT_PICS . '/' . $main_picture);
 
       foreach ($picture_names as $key => $name) {
         $tmp_name = $picture_tmp_names[$key];
         
-        $additional_pictures = $date_created . "_" . $name;
+        $additional_pictures = $this->addTimeCreated($name);
 
-        move_uploaded_file($tmp_name, "../public/assets/img/products/" . $additional_pictures);
+        move_uploaded_file($tmp_name, PRODUCT_PICS . '/' . $additional_pictures);
 
         $this->model('Picture_model')->insertDataPictures($additional_pictures, $id_last_product);
       }
@@ -96,6 +93,54 @@ class Product extends Controller {
       header('Location: ' . ADMINURL . '/product/add');
       exit;
     }
+  }
+
+  public function updateProduct()
+  {
+    if (!empty($_FILES['main_picture']['name'])) {
+      $picture_name =  $_FILES['main_picture']['name'];
+      $picture_tmp_name = $_FILES['main_picture']['tmp_name'];
+      $new_main_picture = $this->addTimeCreated($picture_name);
+
+      $row = $this->model('Product_model')->getProductById($_POST['id_product']);
+      $id_new_main_picture = $this->model('Picture_model')->getPictureByName($row['main_picture']);
+
+      if ($this->model('Product_model')->updateDataProduct($_POST, $new_main_picture) > 0) {
+        unlink(PRODUCT_PICS . '/' . $row['main_picture']);
+
+        move_uploaded_file($picture_tmp_name, PRODUCT_PICS . '/' . $new_main_picture);
+
+        $this->model('Picture_model')->updateMainPicture($new_main_picture, $id_new_main_picture['id_picture']);
+
+        Flasher::setFlash('Success.', 'Product with Id: <strong>' . $_POST['id_product'] . '</strong> has been updated.', 'success');      
+        header('Location:' . ADMINURL .'/product');
+        exit;
+      }
+      else {
+        Flasher::setFlash('Error.', 'Unable to update Product.', 'danger');
+        header('Location: ' . ADMINURL . '/product/update/' . $_POST['id_product']);
+        exit;
+      }
+    } else {
+      $row = $this->model('Product_model')->getProductById($_POST['id_product']);
+      if ($this->model('Product_model')->updateDataProduct($_POST, $row['main_picture']) > 0) {
+        Flasher::setFlash('Success.', 'Product with Id: <strong>' . $_POST['id_product'] . '</strong> has been updated.', 'success');      
+        header('Location:' . ADMINURL .'/product');
+        exit;
+      } else {
+        Flasher::setFlash('Error.', 'Unable to update Product.', 'danger');
+        header('Location: ' . ADMINURL . '/product/update/' . $_POST['id_product']);
+        exit;
+      }
+    }
+  }
+
+  public function addTimeCreated($file_name)
+  {
+    date_default_timezone_set("Asia/Jakarta");
+    $date_created = date('d-m-Y_H-i-s');
+    $final_name = $date_created . "_" . $file_name;
+    return $final_name;
   }
 }
 ?>
