@@ -56,7 +56,7 @@ class Product extends Controller {
 
   public function update($id) 
   {
-    $data['judul'] = 'Detail Product | Dermanifest Admin';
+    $data['judul'] = 'Update Product | Dermanifest Admin';
     $data['product'] = $this->model('Product_model')->getProductById($id);
     $data['category_list'] = $this->model('Category_model')->getAllCategory();
 
@@ -65,7 +65,16 @@ class Product extends Controller {
     $this->viewAdmin('product/update', $data);
     $this->view('layout/admin/footer');
   }
+  
+  public function pictures($id) 
+  {
+    $data['judul'] = 'Manage Product Pictures | Dermanifest Admin';
 
+    $this->view('layout/admin/header', $data);
+    $this->view('layout/admin/sidebar');
+    $this->viewAdmin('product/pictures', $data);
+    $this->view('layout/admin/footer');
+  }
   public function insert()
   {         
     $picture_names =  $_FILES['pictures']['name'];
