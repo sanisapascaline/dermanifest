@@ -87,5 +87,15 @@ class Product_model {
 
 		return $this->db->rowCount();
   }
+
+  public function deleteDataProduct($id)
+  {
+    $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_product = :id_product');
+		$this->db->bind('id_product', $id);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+  }
 }
 ?>
