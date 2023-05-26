@@ -57,10 +57,10 @@
       <h6>Current Product Main Picture:</h6>
       <img src="<?= IMGURL; ?>/products/<?= $data['product']['main_picture']; ?>" class="mb-3" width="200vw" height="auto" alt="Product main picture">
       <div class="picture-input">
-        <input type="file" class="form-control" name="pictures[]" required>			
+        <input type="file" class="form-control" name="main_picture" required>			
         <p>Ignore this input if the product main picture is not mean to be updated.</p>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary-native">Save</button>
+    <button type="submit" class="btn btn-primary-native">Update Product</button>
   </form>
 </div>
