@@ -142,5 +142,26 @@ class Product extends Controller {
     $final_name = $date_created . "_" . $file_name;
     return $final_name;
   }
+
+  public function delete($id)
+  {
+    $row = $this->model('Product_model')->getProductById($id);
+    $picture_list = $this->model('Picture_model')->getAllPictureByIdProduct($id);
+
+    if (($this->model('Product_model')->deleteDataProduct($id) > 0) && ($this->model('Picture_model')->deletetPictureByIdProduct($id) > 0)) {    
+      foreach ($picture_list as $pic) {
+        $pic_file = PRODUCT_PICS. '/' . $pic['picture_name'];
+        file_exists($pic_file) ? unlink($pic_file) : '' ;
+      }
+
+      Flasher::setFlash('Success.', 'Product: <strong>' . $row['product_name'] . '</strong> has been deleted', 'success');
+      header('Location: ' . ADMINURL . '/product');
+      exit;
+    } else {
+      Flasher::setFlash('Error.', 'Failed to delete Product', 'danger');
+      header('Location: ' . ADMINURL . '/product');
+      exit;
+    }
+  }
 }
 ?>
