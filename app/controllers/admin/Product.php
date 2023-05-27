@@ -85,6 +85,7 @@ class Product extends Controller {
     $this->viewAdmin('product/pictures', $data);
     $this->view('layout/admin/footer');
   }
+
   public function insert()
   {         
     $picture_names =  $_FILES['pictures']['name'];
@@ -97,11 +98,9 @@ class Product extends Controller {
 
       foreach ($picture_names as $key => $name) {
         $tmp_name = $picture_tmp_names[$key];
-        
         $additional_pictures = $this->addTimeCreated($name);
 
         move_uploaded_file($tmp_name, PRODUCT_PICS . '/' . $additional_pictures);
-
         $this->model('Picture_model')->insertDataPictures($additional_pictures, $id_last_product);
       }
 
@@ -126,9 +125,7 @@ class Product extends Controller {
 
       if ($this->model('Product_model')->updateDataProduct($_POST, $new_main_picture) > 0) {
         unlink(PRODUCT_PICS . '/' . $row['main_picture']);
-
         move_uploaded_file($picture_tmp_name, PRODUCT_PICS . '/' . $new_main_picture);
-
         $this->model('Picture_model')->updateMainPicture($new_main_picture, $id_new_main_picture['id_picture']);
 
         Flasher::setFlash('Success.', 'Product with Id: <strong>' . $_POST['id_product'] . '</strong> has been updated.', 'success');      
@@ -187,12 +184,13 @@ class Product extends Controller {
   {
     $row = $this->model('Picture_model')->getPictureByIdPicture($id);
     if ($this->model('Picture_model')->deletePictureByIdPicture($id)) {
+      unlink(PRODUCT_PICS . '/' . $row['picture_name']);
       Flasher::setFlash('Success.', 'Product Picture: <strong>' . $row['picture_name'] . '</strong> has been deleted', 'success');
-      header('Location: ' . ADMINURL . '/product/pictures/' . $id);
+      header('Location: ' . ADMINURL . '/product/pictures/' . $row['id_product']);
       exit;
     } else {
       Flasher::setFlash('Error.', 'Failed to delete Product Picture', 'danger');
-      header('Location: ' . ADMINURL . '/product/pictures/' . $id);
+      header('Location: ' . ADMINURL . '/product/pictures/' . $row['id_product']);
       exit;
     }
   }
