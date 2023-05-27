@@ -18,8 +18,8 @@
   </table>
 
   <h3 class="mt-20px">Pictures</h3>
-  <div class="row justify-content-start mt-3">
-    <div class="d-flex flex-column col-md-2 me-3">
+  <div class="row justify-content-start mt-3 align-items-start">
+    <div class="d-flex flex-column col-md-2 me-3 border border-2 rounded-3 mb-3 p-2">
       <h4 class="mb-2">Main Picture</h4>
       <img src="<?= IMGURL; ?>/products/<?= $data['product']['main_picture']; ?>">
       <p class="text-break"><?= $data['product']['main_picture']?></p>
@@ -28,7 +28,7 @@
     <?php 
     $num = 1;
     foreach ($data['product_picture_list'] as $picture) : ?>
-      <div class="d-flex flex-column col-md-2 me-3">
+      <div class="d-flex flex-column col-md-2 me-3 border border-2 rounded-3 mb-3 p-2">
         <h4 class="mb-2">Additional Picture #<?= $num++; ?></h4>
         <img src="<?= IMGURL; ?>/products/<?= $picture['picture_name']; ?>">
         <p class="text-break"><?= $picture['picture_name']?></p>
@@ -60,11 +60,11 @@
     <?php endforeach; ?>
   </div>
 
-  <form action="">
+  <form action="<?= ADMINURL; ?>/product/insertpictures/<?= $data['product']['id_product']; ?>" method="post" enctype="multipart/form-data">
     <div class="form-group mb-3 mt-4">
-      <label class="form-label"><h3>Add More Pictures (Max. 7 Pictures)</h3></label>
+      <label class="form-label"><h3>Add More Pictures (Max. 6 Additional Pictures)</h3></label>
       <div class="picture-input mt-2">
-        <input type="file" class="form-control" name="pictures[]" required>			
+        <input type="file" class="form-control first-pic" name="pictures[]" required>			
       </div>
       <div class="pic-btn mt-3">
         <span id="add-input" class="btn btn-primary add-input" style="width: 60px">
@@ -75,20 +75,37 @@
         </span>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary-native">Add Pictures</button>
+    <button type="submit" class="pic-submit btn btn-primary-native">Add Pictures</button>
   </form>
 </div>
 
 <script>
-  $(document).ready(function () {
-    let count = 0;
+$(document).ready(function () {
+  let count = 1;
+  let total_pic = <?= count($data['product_picture_list']); ?>;
+  let remaining_pic = 6 - total_pic;
+
+  if (remaining_pic === 0) {
+    $(".picture-input").prepend(`<p class="text-danger">The maximum amount of pictures has been reached. Cannot add any pictures.</p>`);
+    $(".first-pic").attr('disabled','disabled');
+    $(".pic-submit").attr('disabled','disabled');
+    $("#add-input").hide();
+    $("#remove-input").hide();
+  } else {
+    $(".picture-input").prepend(`<p class="text-primary">Remaining pictures can be uploaded: ${remaining_pic}</p>`);
+  
+    if (count === 1) {
+      $("#remove-input").hide();
+    } else if (count === remaining_pic) {
+      $("#add-input").hide();
+    }
 
     $(".add-input").on("click", function(){
-      if (count < 6) {
+      if (count <= remaining_pic) {
         $(".picture-input").append(`<input type="file" id="picture-input-${count}" class="form-control mt-3" name="pictures[]">`);
         count++;
 
-        if (count === 6) {
+        if (count === remaining_pic) {
           $("#add-input").hide();
         } else {
           $("#remove-input").show();
@@ -101,18 +118,13 @@
         $(`#picture-input-${count-1}`).remove();
         count--;
 
-        if (count === 0) {
+        if (count === 1) {
           $("#remove-input").hide();
         } else {
           $("#add-input").show();
         }
       }
- 		});
-
-    if (count < 1) {
-      $("#remove-input").hide();
-    } else if (count > 0) {
-      $("#remove-input").show();
-    }
-  });
-  </script>
+    });
+  }
+});
+</script>
