@@ -26,6 +26,14 @@ class Picture_model {
     
     return $this->db->single();
   }
+  
+  public function getPictureByIdPicture($id)
+  {
+    $this->db->query("SELECT * FROM " . $this->table . " WHERE id_picture = :id_picture");
+    $this->db->bind('id_picture', $id);
+    
+    return $this->db->single();
+  }
 
   public function insertDataPictures($picture_name, $id_product)
   {
@@ -61,6 +69,16 @@ class Picture_model {
 		$this->db->execute();
 
 		return $this->db->rowCount();
+  }
+
+  public function deletePictureByIdPicture($id)
+  {
+    $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_picture = :id_picture');
+    $this->db->bind('id_picture', $id);
+
+    $this->db->execute();
+
+    return $this->db->rowCount();
   }
 }
 ?>
