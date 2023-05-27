@@ -27,8 +27,12 @@
           <td><?= $category['id_category']; ?></td>
           <td><?= htmlspecialchars($category['name']); ?></td>    
           <td>
-            <a href="<?= ADMINURL; ?>/category/update/<?= $category['id_category']; ?>" class="btn btn-primary">Update</a>
-            <a class="btn btn-danger" data-toggle="modal" data-target="#modal-<?= $category['id_category']; ?>">Delete</a>
+            <a href="<?= ADMINURL; ?>/category/update/<?= $category['id_category']; ?>" class="btn btn-primary">
+              <span><i class="fa-regular fa-pen-to-square me-1"></i></span>Update
+            </a>
+            <a class="btn btn-danger" data-toggle="modal" data-target="#modal-<?= $category['id_category']; ?>">
+              <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
+            </a>
           </td>
         </tr>
 
