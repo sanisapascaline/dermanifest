@@ -11,8 +11,8 @@
     </div>
     <div class="form-group mb-3">
       <label class="form-label">Product Category</label> <br>
-      <select name="id_category" required>
-        <option>Category</option>
+      <select class="form-select" name="id_category" required>
+        <option value="">Category</option>
         <?php foreach ($data['category_list'] as $category) :?>
           <option value="<?= $category['id_category']; ?>"><?= $category['name']; ?></option>
         <?php endforeach; ?>
@@ -62,12 +62,11 @@
         </span>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary-native">Save</button>
+    <button type="submit" class="btn btn-primary-native">Add Product</button>
   </form>
 </div>        
 
 <script>
-  
   $(document).ready(function () {
     let count = 0;
 
