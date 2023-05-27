@@ -8,11 +8,11 @@
     <tbody>
       <tr>
         <th>Id</th>
-        <td>dummy</td>
+        <td><?= $data['product']['id_product']; ?></td>
       </tr>
       <tr>
         <th>Name</th>
-        <td>dummy</td>
+        <td><?= $data['product']['product_name']; ?></td>
       </tr>
     </tbody>
   </table>
@@ -20,23 +20,44 @@
   <h3 class="mt-20px">Pictures</h3>
   <div class="row justify-content-start mt-3">
     <div class="d-flex flex-column col-md-2 me-3">
-  		<img src="https://dummyimage.com/200x300/000/fff.png">
-      <a href="#" class="btn btn-danger mt-2">
-       <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
-      </a>
+      <h4 class="mb-2">Main Picture</h4>
+      <img src="<?= IMGURL; ?>/products/<?= $data['product']['main_picture']; ?>">
+      <p class="text-break"><?= $data['product']['main_picture']?></p>
     </div>
-    <div class="d-flex flex-column col-md-2 me-3">
-  		<img src="https://dummyimage.com/200x300/000/fff.png">
-      <a href="#" class="btn btn-danger mt-2">
-       <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
-      </a>
-    </div>
-    <div class="d-flex flex-column col-md-2 me-3">
-  		<img src="https://dummyimage.com/200x300/000/fff.png">
-      <a href="#" class="btn btn-danger mt-2">
-       <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
-      </a>
-    </div>
+
+    <?php 
+    $num = 1;
+    foreach ($data['product_picture_list'] as $picture) : ?>
+      <div class="d-flex flex-column col-md-2 me-3">
+        <h4 class="mb-2">Additional Picture #<?= $num++; ?></h4>
+        <img src="<?= IMGURL; ?>/products/<?= $picture['picture_name']; ?>">
+        <p class="text-break"><?= $picture['picture_name']?></p>
+        <a class="btn btn-danger mt-1" data-toggle="modal" data-target="#modal-<?= $picture['id_picture']; ?>">
+          <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
+        </a>
+      </div>
+
+      <!-- DELETE PRODUCT PICTURE MODAL -->
+      <div class="modal fade" id="modal-<?= $picture['id_picture']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are sure want to delete <strong> <?= $picture['picture_name']; ?> </strong>?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary-native" data-dismiss="modal">No, keep Picture</button>
+              <a type="button" href="<?= ADMINURL; ?>/product/deletepicture/<?= $picture['id_picture']; ?>" class="btn btn-primary-native">Yes, delete Picture</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
   </div>
 
   <form action="">
