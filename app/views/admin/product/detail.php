@@ -8,43 +8,43 @@
     <tbody>
       <tr>
         <th>Id</th>
-        <td><?= $data['product']['id_product'] ?></td>
+        <td><?= $data['product']['id_product']; ?></td>
       </tr>
       <tr>
         <th>Name</th>
-        <td><?= $data['product']['product_name'] ?></td>
+        <td><?= $data['product']['product_name']; ?></td>
       </tr>
       <tr>
         <th>Category</th>
-        <td><?= $data['product']['category_name'] ?></td>
+        <td><?= $data['product']['category_name']; ?></td>
       </tr>
       <tr>
         <th>Price</th>
-        <td><?= $data['product']['price'] ?></td>
+        <td>Rp<?= number_format($data['product']['price'], 0, ',' , '.'); ?>,-</td>
       </tr>
       <tr>
         <th>Stock</th>
-        <td><?= $data['product']['stock'] ?></td>
+        <td><?= $data['product']['stock']; ?></td>
       </tr>
       <tr>
         <th>Neto</th>
-        <td><?= $data['product']['neto'] ?> gr</td>
+        <td><?= $data['product']['neto']; ?> gr</td>
       </tr>
       <tr>
         <th>Gross Weight</th>
-        <td><?= $data['product']['gross_weight'] ?></td>
+        <td><?= $data['product']['gross_weight']; ?> gr</td>
       </tr>
       <tr>
         <th>Description</th>
-        <td><?= $data['product']['description'] ?></td>
+        <td><?= $data['product']['description']; ?></td>
       </tr>
       <tr>
         <th>Instruction</th>
-        <td><?= $data['product']['instruction'] ?></td>
+        <td><?= $data['product']['instruction']; ?></td>
       </tr>
       <tr>
         <th>Ingredients</th>
-        <td><?= $data['product']['ingredients'] ?></td>
+        <td><?= $data['product']['ingredients']; ?></td>
       </tr>
     </tbody>
   </table>
