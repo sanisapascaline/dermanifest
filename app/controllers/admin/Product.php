@@ -68,9 +68,17 @@ class Product extends Controller {
   
   public function pictures($id) 
   {
+    $main_picture = $this->model('Product_model')->getProductById($id)['main_picture'];
+    $product_picture_list = $this->model('Picture_model')->getAllPictureByIdProduct($id);
+    foreach ($product_picture_list as $key => $picture) {
+      if ($picture['picture_name'] == $main_picture) {
+       unset($product_picture_list[$key]);
+      }
+    }
+
     $data['judul'] = 'Manage Product Pictures | Dermanifest Admin';
     $data['product'] = $this->model('Product_model')->getProductById($id);
-    $data['product_picture_list'] = $this->model('Picture_model')->getAllPictureByIdProduct($id);
+    $data['product_picture_list'] = $product_picture_list;
 
     $this->view('layout/admin/header', $data);
     $this->view('layout/admin/sidebar');
@@ -171,6 +179,20 @@ class Product extends Controller {
     } else {
       Flasher::setFlash('Error.', 'Failed to delete Product', 'danger');
       header('Location: ' . ADMINURL . '/product');
+      exit;
+    }
+  }
+
+  public function deletePicture($id)
+  {
+    $row = $this->model('Picture_model')->getPictureByIdPicture($id);
+    if ($this->model('Picture_model')->deletePictureByIdPicture($id)) {
+      Flasher::setFlash('Success.', 'Product Picture: <strong>' . $row['picture_name'] . '</strong> has been deleted', 'success');
+      header('Location: ' . ADMINURL . '/product/pictures/' . $id);
+      exit;
+    } else {
+      Flasher::setFlash('Error.', 'Failed to delete Product Picture', 'danger');
+      header('Location: ' . ADMINURL . '/product/pictures/' . $id);
       exit;
     }
   }
