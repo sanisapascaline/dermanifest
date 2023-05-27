@@ -194,5 +194,27 @@ class Product extends Controller {
       exit;
     }
   }
+
+  public function insertPictures($id_product)
+  {
+    $picture_names =  $_FILES['pictures']['name'];
+    $picture_tmp_names = $_FILES['pictures']['tmp_name'];
+
+    foreach ($picture_names as $key => $name) {
+      $tmp_name = $picture_tmp_names[$key];
+      $additional_pictures = $this->addTimeCreated($name);
+
+      move_uploaded_file($tmp_name, PRODUCT_PICS . '/' . $additional_pictures);
+
+      if ($this->model('Picture_model')->insertDataPictures($additional_pictures, $id_product) > 0) {
+        Flasher::setFlash('Success.', '<strong>' . count($picture_names) . ' New Product Picture(s)</strong> have been added.', 'success');
+        header('Location:' . ADMINURL .'/product/pictures/' . $id_product);
+      } else {
+        Flasher::setFlash('Error.', 'Failed to add Product Pictures.', 'danger');
+        header('Location: ' . ADMINURL . '/product/pictures/' . $id_product);
+        exit;
+      }
+    }
+  }
 }
 ?>
