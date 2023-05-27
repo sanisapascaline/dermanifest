@@ -41,7 +41,7 @@
             <a href="<?= ADMINURL; ?>/product/update/<?= $product['id_product']; ?>" class="btn btn-primary">
               <span><i class="fa-regular fa-pen-to-square me-1"></i></span>Update
             </a>
-            <a href="#" class="btn btn-success">
+            <a href="<?= ADMINURL; ?>/product/pictures/<?= $product['id_product']; ?>" class="btn btn-success">
               <span><i class="fa-regular fa-images me-1"></i></span>Pictures
             </a>
             <a class="btn btn-danger" data-toggle="modal" data-target="#modal-<?= $product['id_product']; ?>">
