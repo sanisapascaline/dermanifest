@@ -21,14 +21,15 @@ h1, h2, h3 {
     color: #333d29;
 }
 
-h4,h5 {
+h4, h5, h6 {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
+    color: #333d29;
 }
-img {
+/* img {
     width: 100%;
     height: 100%;
-}
+} */
 .nav-link img {
     height:auto !important;
 }
@@ -86,7 +87,7 @@ img {
     left: auto !important;
 }
 .whitespace {
-    height: 90px;
+    height: 110px;
     top: 0px;
 }
 @media screen and (max-width: 778px) {
@@ -143,8 +144,8 @@ img {
 .text-hero h2 {
     color: #ffffff;
 }
-.carousel-item-start,
-.carousel-item-end {
+.hero .carousel-item-start,
+.hero .carousel-item-end {
   width: 84% !important;
 }
 
@@ -400,6 +401,9 @@ img {
 .sec-footer {
     background-color: #656D4A;
 }
+.sec-footer h5 {
+    color: #ffffff;
+}
 .footer-logo img {
     width: auto;
 }
@@ -565,6 +569,30 @@ img {
 .btn-info {
     color: #fff !important;
 }
+
+/* PRODUCT DETAIL */
+.product-detail .carousel-item img {
+    border-radius: 20px;
+    max-width: 350px;
+    height: 528px;
+    object-fit: contain;
+}
+
+.product-detail .details li {
+    list-style: unset;
+    text-decoration: unset;
+}
+
+.product-detail h1,
+.product-detail h2 {
+    font-weight: 800;
+}
+
+.product-detail h4 {
+    font-weight: 700;
+}
+
+
 
 /* size 992 */
 @media screen and (max-width: 992px) {
