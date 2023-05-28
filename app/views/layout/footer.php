@@ -1,3 +1,5 @@
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script
 <!-- Local JS -->
 <script src="<?= BASEURL; ?>/assets/js/main.js"></script>
 <!-- Jquery -->
