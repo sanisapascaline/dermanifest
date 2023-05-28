@@ -189,7 +189,7 @@
             </p>
         </div>
         <div class="button-buy">
-          <a href="#" class="btn btn-buy">Shop Now</a>
+          <a href="<?= BASEURL; ?>/product" class="btn btn-buy">Shop Now</a>
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 col-12 col-img">
@@ -200,10 +200,14 @@
     <div class="row eshop-row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 col-eshop">
         <div class="image-item">
-          <img src="<?= IMGURL; ?>/shopee.svg" alt="">
+            <a href="https://shopee.co.id/dermanifest">
+              <img src="<?= IMGURL; ?>/shopee.svg" alt="Shopee Logo">
+            </a>
         </div>
         <div class="image-item">
-          <img src="<?= IMGURL; ?>/instagram.svg" alt="">
+            <a href="https://www.instagram.com/dermanifest/">
+              <img src="<?= IMGURL; ?>/instagram.svg" alt="Instagram Logo">
+            </a>
         </div>
       </div>
     </div>
