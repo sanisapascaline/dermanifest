@@ -30,8 +30,15 @@ class Product extends Controller {
 
   public function detail($id) 
   {
+    $main_picture = $this->model('Product_model')->getProductById($id)['main_picture'];
+    $product_picture_list = $this->model('Picture_model')->getAllPictureByIdProduct($id);
+    foreach ($product_picture_list as $key => $picture) {
+      if ($picture['picture_name'] == $main_picture) {
+       unset($product_picture_list[$key]);
+      }
+    }
     $data['product'] = $this->model('Product_model')->getProductById($id);
-    $data['product_picture_list'] = $this->model('Picture_model')->getAllPictureByIdProduct($id);
+    $data['product_picture_list'] = $product_picture_list;
     $data['judul'] = $data['product']['product_name'] . ' | Dermanifest';
 
     $this->view('layout/header', $data);
