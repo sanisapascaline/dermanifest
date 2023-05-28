@@ -2,7 +2,7 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light nav-dermanifest">
       <div class="container-fluid">
-        <a class="navbar-brand nav-logo" href="#"><img src="<?= IMGURL; ?>/logo-dark.svg" alt="" srcset=""></a>
+        <a class="navbar-brand nav-logo" href="<?= BASEURL; ?>"><img src="<?= IMGURL; ?>/logo-dark.svg" alt="" srcset=""></a>
       </div>
 
       <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,12 +10,12 @@
       </button>
 
       <li class="navbar-toggler nav-toggle">
-        <a class="n" href="#"><i class='bx bx-cart'></i></a>
+        <a class="" href="#"><i class='bx bx-cart'></i></a>
       </li>
       <div class="collapse navbar-collapse dorpdown-mobile" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item me-4">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="<?= BASEURL; ?>">Home</a>
           </li>
           <li class="nav-item me-4">
             <a class="nav-link" href="index.php#scroll-about">About</a>
@@ -25,7 +25,7 @@
                 Shop
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">All Product</a></li>
+              <li><a class="dropdown-item" href="<?= BASEURL; ?>/product">All Product</a></li>
               <li><a class="dropdown-item" href="#">Dermanifest Classic Powder Beauty Mask</a></li>
               <li><a class="dropdown-item" href="#">Dermanifest Classic Candlenut Oil</a></li>
               <li><a class="dropdown-item" href="#">Dermanifest Classic Scented Candle</a></li>
