@@ -32,7 +32,7 @@ class Product extends Controller {
   {
     $data['product'] = $this->model('Product_model')->getProductById($id);
     $data['product_picture_list'] = $this->model('Picture_model')->getAllPictureByIdProduct($id);
-    $data['judul'] = $data['product_list']['product_name'] . ' | Dermanifest';
+    $data['judul'] = $data['product']['product_name'] . ' | Dermanifest';
 
     $this->view('layout/header', $data);
     $this->view('layout/navbar');
