@@ -40,7 +40,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?= BASEURL; ?>"><u>Home</a></u></li>
           <li class="breadcrumb-item"><a href="<?= BASEURL; ?>/product"><u>Product List</a></u></li>
-          <li class="breadcrumb-item active" aria-current="page">Product Name</li>
+          <li class="breadcrumb-item active" aria-current="page"><?= $data['product']['product_name']; ?></li>
         </ol>
       </nav>
       <h2><?= $data['product']['product_name']; ?></h2>
