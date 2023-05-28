@@ -27,5 +27,18 @@ class Product extends Controller {
     $this->view('layout/bottom_navbar');
     $this->view('layout/footer');
   }
+
+  public function detail($id) 
+  {
+    $data['product_list'] = $this->model('Product_model')->getProductById($id);
+    $data['product_picture_list'] = $this->model('Picture_model')->getAllPictureByIdProduct($id);
+    $data['judul'] = $data['product_list']['product_name'] . ' | Dermanifest';
+
+    $this->view('layout/header', $data);
+    $this->view('layout/navbar');
+    $this->view('product/detail', $data);
+    $this->view('layout/bottom_navbar');
+    $this->view('layout/footer');
+  }
 }
 ?>
