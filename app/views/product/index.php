@@ -9,7 +9,7 @@
             <h3><?= $category['name']; ?></h3>
           </div>
           <div class="paragraph">
-            <p>Clean and recharge your face with our Etawa Goat Milk Mask.</p>
+            <p><?= $category['description']; ?></p>
           </div>
         </div>
       </div>
