@@ -124,34 +124,35 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="product-content">
           <div class="title">
-            <h1>Top Product</h1>
+            <h1>Top Products</h1>
           </div>
           <div class="paragraph">
-            <p>Our top product, truthfully crafted for you.</p>
+            <p>Our top products, truthfully crafted for you.</p>
           </div>
         </div>
       </div>
     </div>
     <div class="row row-product swiper-wrapper mb-5" id="scrollhere">
+    <?php foreach ($data['product_list'] as $key => $product) : ?>     
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 swiper-slide">
-        <a href="#">
+        <a href="<?= BASEURL?>/product/detail/<?= $product['id_product']; ?>">
           <div class="card swiper-slide">
             <div class="image-product">
               <div class="hover-desc">
                 <p><i class="fa fa-search" aria-hidden="true"></i></p>
               </div>
-              <img src="#" alt="...">
+              <img src="<?= IMGURL; ?>/products/<?= $product['main_picture']; ?>" alt="...">
             </div>
 
             <div class="product-content">
               <div class="text-content">
-                <h5>Nama Produk</h5>
-                <p>Kategori</p>
+                <h5><?= $product['product_name']; ?></h5>
+                <p><?= $product['category_name']; ?></p>
               </div>
 
               <div class="price-rate">
                 <div class="product-price">
-                  <p>Rp30.000,-</p>
+                  <p>Rp<?= number_format($product['price'],0,',','.'); ?>,-</p>
                 </div>
               </div>
 
@@ -162,6 +163,7 @@
           </div>
         </a>
       </div>
+      <?php endforeach;?>
     </div> 
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex col-button">
