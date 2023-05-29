@@ -11,7 +11,7 @@ class Product_model {
 
   public function getAllProduct()
   {
-    $this->db->query("SELECT *, product.name AS product_name, category.name AS category_name 
+    $this->db->query("SELECT *, product.name AS product_name, category.name AS category_name, product.description AS product_desc, category.description AS category_desc 
                       FROM " . $this->table . 
                       " LEFT JOIN category 
                       ON product.id_category = category.id_category");
@@ -21,7 +21,7 @@ class Product_model {
 
   public function getProductById($id)
   {
-    $this->db->query("SELECT *, product.name AS product_name, category.name AS category_name 
+    $this->db->query("SELECT *, product.name AS product_name, category.name AS category_name, product.description AS product_desc, category.description AS category_desc 
                       FROM " . $this->table . 
                       " LEFT JOIN category 
                       ON product.id_category = category.id_category
