@@ -26,9 +26,10 @@ class Category_model {
 
   public function insertDataCategory($data) 
   {
-    $query = "INSERT INTO " . $this->table . " (name) VALUES (:name)";
+    $query = "INSERT INTO " . $this->table . " (name, description) VALUES (:name, :description)";
     $this->db->query($query);
     $this->db->bind('name', $data['name']);
+    $this->db->bind('description', $data['description']);
     
     $this->db->execute();
 
@@ -37,10 +38,11 @@ class Category_model {
 
   public function updateDataCategory($data)
   {
-    $query = "UPDATE " . $this->table . " SET name = :name WHERE id_category = :id_category";
+    $query = "UPDATE " . $this->table . " SET name = :name, description = :description WHERE id_category = :id_category";
 		$this->db->query($query);
 		$this->db->bind('name',$data['name']);
 		$this->db->bind('id_category', $data['id_category']);
+    $this->db->bind('description', $data['description']);
 		
     $this->db->execute();
 
