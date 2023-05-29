@@ -208,13 +208,16 @@ h4, h5, h6 {
 .image-product,
 .hover-desc {
     align-self: center;
-    max-width: 355px;
+    max-width: 100%;
+    max-height: 450px;
+}
+.hover-desc {
+    height: inherit;
 }
 .image-product img,
 .hover-desc {
     border-radius: 20px 20px 0 0;
-    max-height: auto; 
-    max-width: 260px;
+    max-width: inherit;
 }
 .image-product .hover-desc {
     position: absolute;
@@ -231,7 +234,7 @@ h4, h5, h6 {
     align-items: center;
     justify-content: center;
     transition: opacity 0.2s, visibility 0.2s;
-    max-height: 385.81px;
+    max-height: inherit;
 }
 .image-product:hover .hover-desc {
     visibility: visible;
@@ -297,6 +300,7 @@ h4, h5, h6 {
 }
 .row-product {
     flex-wrap: nowrap;
+    max-height: 650px;
 }
 .swiper {
     width: 100%;
