@@ -628,6 +628,13 @@ h4, h5, h6 {
 .text-small {
     font-size: 14px;
 }
+.cart-alert {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
 
 /* size 992 */
 @media screen and (max-width: 992px) {
