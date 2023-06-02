@@ -11,6 +11,9 @@
 
       <li class="navbar-toggler nav-toggle">
         <a class="" href="<?= BASEURL; ?>/cart" aria-label="Cart"><i class='bx bx-cart'></i></a>
+        <span class='badge badge-warning' id='lblCartCount'>
+          <?= (isset($_SESSION['cart']) ? $_SESSION['cart']['total'] : 0)?>                    
+        </span>
       </li>
       <div class="collapse navbar-collapse dorpdown-mobile" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -40,7 +43,7 @@
             <li class="nav-item me-4 cart-nav hide-med">
               <a class="nav-link" href="<?= BASEURL; ?>/cart" aria-label="Cart"><i class='bx bx-cart'></i></a>
               <span class='badge badge-warning' id='lblCartCount'>
-                0                    
+                <?= (isset($_SESSION['cart']) ? $_SESSION['cart']['total'] : 0)?>                    
               </span>
             </li>
             <li class="nav-item me-4">

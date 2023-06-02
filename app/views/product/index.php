@@ -1,4 +1,8 @@
 <section class="product container container-product">
+  <div class="cart-alert px-3">
+    <?php Flasher::flash(); ?>
+  </div>
+
   <h1>All Product</h1>
   <?php foreach ($data['categorized_product'] as $category) :?>
   <div class="swiper productSwiper mb-4">
@@ -38,7 +42,7 @@
                 </div>
               </div>
 
-              <a href="#" class="btn btn-buy btn-cart">
+              <a href="<?= BASEURL; ?>/cart/add/<?= $product['id_product']; ?>/<?= base64_encode($_SERVER['REQUEST_URI']); ?>" class="btn btn-buy btn-cart">
                 <box-icon type='solid' name='cart-add'><i class='bx bxs-cart-add' style="width: 20px; height: auto;"></i></box-icon> Add to Cart 
               </a>
             </div>
@@ -56,4 +60,4 @@
     </div>
   </div>
   <?php endforeach; ?>
-</section> 
+</section>
