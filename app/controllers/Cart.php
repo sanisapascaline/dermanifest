@@ -4,14 +4,19 @@ class Cart extends Controller {
   public function index() 
   {
     $data['judul'] = 'Cart | Dermanifest';
+    $data['cart_product_list'] = [
+      'items' => [],
+      'subtotal' => 0
+    ];
     $cart_products = $_SESSION['cart']['products'];
-    
-    $data['cart_product_list'] = [];
 
     foreach ($cart_products as $id_product => $product_cart_quantity) {
       $product_row = $this->model('Product_model')->getProductById($id_product);
+      $product_price_amount = $product_row['price'] * $product_cart_quantity;
+      $data['cart_product_list']['subtotal'] += $product_price_amount;
       $product_row['cart_quantity'] = $product_cart_quantity;
-      array_push($data['cart_product_list'], $product_row);
+      $product_row['price_amount'] = $product_price_amount;
+      array_push($data['cart_product_list']['items'], $product_row);
     }
 
     $this->view('layout/header', $data);
