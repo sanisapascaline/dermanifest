@@ -75,8 +75,7 @@
 <section class="spacer">
   <div class="container spacer-container">
     <div class="row spacer-row">
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 col-item mb-3 p-5">
-              
+      <div class="col-lg-2 col-md-2 col-sm-4 col-4 col-item mb-3 p-5">              
       </div>
     </div>
   </div>
@@ -119,6 +118,9 @@
 
 <!-- PRODUCT -->
 <section class="product">
+  <div class="cart-alert px-3">
+    <?php Flasher::flash(); ?>
+  </div>
   <div class="container container-product swiper productSwiper">
     <div class="row row-title-product mb-5">
       <div class="col-lg-12 col-md-12 col-sm-12">
@@ -137,7 +139,7 @@
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 swiper-slide">
         <a href="<?= BASEURL?>/product/detail/<?= $product['id_product']; ?>">
           <div class="card swiper-slide">
-            <div class="image-product">
+            <div class="image-product"> 
               <div class="hover-desc">
                 <p><i class="fa fa-search" aria-hidden="true"></i></p>
               </div>
@@ -156,7 +158,7 @@
                 </div>
               </div>
 
-              <a href="#" class="btn btn-buy btn-cart">
+              <a href="<?= BASEURL; ?>/cart/add/<?= $product['id_product']; ?>/<?= base64_encode($_SERVER['REQUEST_URI']); ?>" class="btn btn-buy btn-cart">
                 <box-icon type='solid' name='cart-add'><i class='bx bxs-cart-add' style="width: 20px; height: auto;"></i></box-icon> Add to Cart 
               </a>
             </div>
