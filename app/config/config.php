@@ -1,6 +1,7 @@
 <?php
 
 // URL
+define('HOSTURL', 'http://localhost');
 define('BASEURL', 'http://localhost/dermanifest/public');
 define('IMGURL', 'http://localhost/dermanifest/public/assets/img');
 define('ADMINURL', 'http://localhost/dermanifest/public/admin');
