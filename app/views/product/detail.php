@@ -1,4 +1,7 @@
 <section class="product-detail container mb-5">
+  <div class="cart-alert px-3">
+    <?php Flasher::flash(); ?>
+  </div>
   <div class="row mt-3">
     <div class="pictures d-flex justify-content-center col-md-6">
       <div class="">
@@ -67,7 +70,7 @@
         </div>    
       </div>
       <div class="d-flex mt-4">
-        <a href="#" class="btn btn-buy w-100"><i class="fas fa-cart-plus"></i>Add to Cart</a>
+        <a href="<?= BASEURL; ?>/cart/add/<?= $data['product']['id_product']; ?>/<?= base64_encode($_SERVER['REQUEST_URI']); ?>" class="btn btn-buy w-100"><i class="fas fa-cart-plus"></i>Add to Cart</a>
       </div>
     </div>
   </div>
