@@ -596,7 +596,38 @@ h4, h5, h6 {
     font-weight: 700;
 }
 
-
+/* CART */
+.cart-page {
+    min-height: 60vh;
+}
+.cart-empty-container {
+    background: #E5E9DB;
+    box-shadow: 0px 9px 17px rgba(201, 201, 201, 0.8);
+    border-radius: 20px;
+}
+.cart-table {
+    background: radial-gradient(100% 176.04% at 0% 99.98%, #F0F0F0 47.44%, rgba(240, 240, 240, 0.2) 100%);
+    border: 1px solid #E3E3E3;
+    box-shadow: 0px 9px 17px rgba(201, 201, 201, 0.8);
+    border-radius: 20px;
+}
+.cart-table table {
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+.cart-table img {
+    max-height: 180px;
+    border-radius: 10px;
+}
+.cart-table p {
+    margin: unset;
+}
+.cart-table input {
+    max-width: 55px;
+}
+.text-small {
+    font-size: 14px;
+}
 
 /* size 992 */
 @media screen and (max-width: 992px) {
