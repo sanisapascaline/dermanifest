@@ -4,7 +4,16 @@ class Cart extends Controller {
   public function index() 
   {
     $data['judul'] = 'Cart | Dermanifest';
+    $cart_products = $_SESSION['cart']['products'];
     
+    $data['cart_product_list'] = [];
+
+    foreach ($cart_products as $id_product => $product_cart_quantity) {
+      $product_row = $this->model('Product_model')->getProductById($id_product);
+      $product_row['cart_quantity'] = $product_cart_quantity;
+      array_push($data['cart_product_list'], $product_row);
+    }
+
     $this->view('layout/header', $data);
     $this->view('layout/navbar');
     $this->view('cart/index', $data);
