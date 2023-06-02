@@ -18,10 +18,10 @@ class Cart extends Controller {
     $product_row = $this->model('Product_model')->getProductById($id_product);
     if ($this->model('Product_model')->getProductById($id_product) > 0) {
       if (isset($_SESSION['cart'][$id_product])) {
-        $_SESSION['cart'][$id_product] += 1;
+        $_SESSION['cart']['products'][$id_product] += 1;
         $_SESSION['cart']['total'] += 1;
       } else {
-        $_SESSION['cart'][$id_product] = 1;
+        $_SESSION['cart']['products'][$id_product] = 1;
         $_SESSION['cart']['total'] +=  1;
       }
       Flasher::setFlash('Success.', '<strong>' . $product_row['product_name'] . '</strong> has been added into your cart!','success');
