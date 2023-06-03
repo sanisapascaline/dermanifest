@@ -16,39 +16,25 @@
             </tr>
           </thead>
           <tbody>
+            <?php foreach ($data['cart_product_list']['items'] as $product) :?>
             <tr class="mt-2">
               <td>
                 <div class="table-product d-flex">
-                  <img src="https://dummyimage.com/400x600/000/fbff00" alt="cart item">
+                  <img src="<?= IMGURL; ?>/products/<?= $product['main_picture']; ?>" alt="cart item">
                   <div class="product-text ms-3">
-                    <h5>Artemis - Coffee Scented Aromatherapy Candle</h5>
-                    <p class="text-small">Dermanifest Aromatherapy Candle</p>
-                    <p class="text-small">30 gr</p>
-                    <h5 class="my-3">Rp30.000,-</h5>
+                    <h5><?= $product['product_name']; ?></h5>
+                    <p class="text-small"><?= $product['category_name']; ?></p>
+                    <p class="text-small"><?= $product['neto']; ?> gr</p>
+                    <h5 class="my-3">Rp<?= number_format($product['price'], 0, ',', '.'); ?>,-</h5>
                     <a href="#" class="text-danger"><u>Remove item</u></a>              
                   </div>
                 </div>  
               </td>
-              <td><input type="number" name="quantity" class="form-control"></td>
-              <td><h5>Rp60.000,-</h5></td>
+              <td><input type="number" name="quantity" value="<?= $product['cart_quantity']; ?>" class="form-control"></td>
+              <td><h5>Rp<?= number_format($product['price'] * $product['cart_quantity'], 0, ',', '.'); ?>,-</h5></td>
             </tr>
-            <tr class="mt-2">
-              <td>
-                <div class="table-product d-flex">
-                  <img src="https://dummyimage.com/400x600/000/fbff00" alt="cart item">
-                  <div class="product-text ms-3">
-                    <h5>Artemis - Coffee Scented Aromatherapy Candle</h5>
-                    <p class="text-small">Dermanifest Aromatherapy Candle</p>
-                    <p class="text-small">30 gr</p>
-                    <h5 class="my-3">Rp30.000,-</h5>
-                    <a href="#" class="text-danger"><u>Remove item</u></a>              
-                  </div>
-                </div>  
-              </td>
-              <td><input type="number" name="quantity" class="form-control"></td>
-              <td><h5>Rp60.000,-</h5></td>
-            </tr>
-          </tbody>
+            <?php endforeach; ?>
+           </tbody>
         </table>
       </div>
     </div>
@@ -56,9 +42,9 @@
     <div class="cart-summary col-md-4 px-4">
       <h3>Summary</h3>
       <h5>Quantity</h5>
-      <p>2 pcs</p>
+      <p><?= $_SESSION['cart']['total']; ?> pcs</p>
       <h5>Subtotal</h5>
-      <h3>Rp120.000,-</h3>
+      <h3>Rp<?= number_format($data['cart_product_list']['subtotal'], 0, ',', '.'); ?>,-</h3>
       <div class="cart-btn d-flex flex-column mt-4">
         <a href="#" class="btn btn-primary-native">Checkout</a>
         <a href="#" class="btn btn-secondary-native mt-2">Empty Cart</a>
