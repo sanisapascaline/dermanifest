@@ -1,9 +1,14 @@
 <section class="cart-page container py-5 mb-5">
   <h1 class="mb-5">My Shopping Cart</h1>
-  <div class="cart-empty-container d-flex align-items-center flex-column p-5 d-none">
-    <h2>Your cart is still empty. Let's shop something!</h2>
+  <div class="mb-5">
+    <?php Flasher::flash(); ?>
+  </div>
+  <?php if (!isset($_SESSION['cart']) || $_SESSION['cart']['total'] == 0) :?>
+  <div class="cart-empty-container d-flex align-items-center flex-column p-5">
+    <h2>Your cart is empty. Let's shop something!</h2>
     <a href="<?= BASEURL; ?>/product" class="shop-button btn btn-primary-native mt-3">Shop Products</a>
   </div>
+  <?php else:?>
   <div class="cart-filled-container row px-3">
     <div class="cart-table col-md-8 mb-4">
       <div class="table-responsive py-2">
@@ -26,11 +31,23 @@
                     <p class="text-small"><?= $product['category_name']; ?></p>
                     <p class="text-small"><?= $product['neto']; ?> gr</p>
                     <h5 class="my-3">Rp<?= number_format($product['price'], 0, ',', '.'); ?>,-</h5>
-                    <a href="#" class="text-danger"><u>Remove item</u></a>              
+                    <a href="<?= BASEURL; ?>/cart/delete/<?= $product['id_product']; ?>" class="text-danger"><u>Remove item</u></a>              
                   </div>
                 </div>  
               </td>
-              <td><input type="number" name="quantity" value="<?= $product['cart_quantity']; ?>" class="form-control"></td>
+              <td><input id="quantity-<?= $product['id_product']; ?>" type="number" name="quantity" value="<?= $product['cart_quantity']; ?>" class="form-control"></td>
+              <script>
+                $(document).ready(function () {
+                  var id_product = <?= $product['id_product']; ?>;
+                  $(`#quantity-${id_product}`).change(function () {
+                    console.log(`#quantity-${id_product} quantitiy =>`, $(this).val());
+                    var url = "<?= BASEURL ?>" + "/cart/update/" + id_product + "/" + $(this).val();
+                    if (url) { 
+                      window.location = url; 
+                    }
+                  });
+                });
+              </script>
               <td><h5>Rp<?= number_format($product['price'] * $product['cart_quantity'], 0, ',', '.'); ?>,-</h5></td>
             </tr>
             <?php endforeach; ?>
@@ -47,8 +64,9 @@
       <h3>Rp<?= number_format($data['cart_product_list']['subtotal'], 0, ',', '.'); ?>,-</h3>
       <div class="cart-btn d-flex flex-column mt-4">
         <a href="#" class="btn btn-primary-native">Checkout</a>
-        <a href="#" class="btn btn-secondary-native mt-2">Empty Cart</a>
+        <a href="<?= BASEURL; ?>/cart/emptyall" class="btn btn-secondary-native mt-2">Empty Cart</a>
       </div>
     </div>
   </div>
+  <?php endif;?>
 </section>
