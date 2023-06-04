@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
   <!-- Local CSS -->
   <link rel="stylesheet" href="<?=BASEURL;?>/assets/css/style.css">
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title><?=$data['judul']?></title>
 </head>
 <body>
