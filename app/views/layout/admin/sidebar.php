@@ -35,7 +35,7 @@
       </a>					
     </li>
     <li>
-      <a href="<?= ADMINURL; ?>">
+      <a href="<?= ADMINURL; ?>/payment_method">
         <span class="icon"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
         <span class="title">Payment Methods</span>
       </a>					
