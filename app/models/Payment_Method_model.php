@@ -9,6 +9,21 @@ class Payment_Method_model {
 		$this->db = new Database;
 	}
 
+  public function getAllPaymentMethod()
+  {
+    $this->db->query("SELECT * FROM " . $this->table);
+    
+    return $this->db->resultSet();
+  }
+
+  public function getPaymentMethodById($id)
+  {
+    $this->db->query("SELECT * FROM " . $this->table . " WHERE id_payment_method = :id_payment_method");
+    $this->db->bind('id_payment_method', $id);
+
+    return $this->db->single();
+  }
+
   public function insertDataPaymentMethod($data) 
   {
     $query = "INSERT INTO " . $this->table . " (payment_service, account_number, account_name) VALUES (:payment_service, :account_number, :account_name)";
