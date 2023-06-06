@@ -12,6 +12,7 @@ class Payment_Method extends Controller {
   public function index() 
   {
     $data['judul'] = 'Payment Methods | Dermanifest Admin';
+    $data['payment_method_list'] = $this->model('Payment_Method_model')->getAllPaymentMethod();
     
     $this->view('layout/admin/header', $data);
     $this->view('layout/admin/sidebar');
