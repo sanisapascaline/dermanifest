@@ -33,7 +33,7 @@ class Payment_Method extends Controller {
   public function update($id) 
   {
     $data['judul'] = 'Update Payment Method | Dermanifest Admin';
-    $data['payment_method_list'] = $this->model('Payment_Method_model')->getPaymentMethodById($id);
+    $data['payment_method'] = $this->model('Payment_Method_model')->getPaymentMethodById($id);
     
     $this->view('layout/admin/header', $data);
     $this->view('layout/admin/sidebar');
