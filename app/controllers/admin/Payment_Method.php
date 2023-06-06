@@ -29,6 +29,17 @@ class Payment_Method extends Controller {
     $this->viewAdmin('payment_method/add', $data);
     $this->view('layout/admin/footer');
   }
+
+  public function update($id) 
+  {
+    $data['judul'] = 'Update Payment Method | Dermanifest Admin';
+    $data['payment_method_list'] = $this->model('Payment_Method_model')->getPaymentMethodById($id);
+    
+    $this->view('layout/admin/header', $data);
+    $this->view('layout/admin/sidebar');
+    $this->viewAdmin('payment_method/update', $data);
+    $this->view('layout/admin/footer');
+  }
   
   public function insert() 
   {
