@@ -48,7 +48,7 @@
               </button>
             </div>
             <div class="modal-body">
-              Are sure want to delete <strong> <?= $picture['picture_name']; ?> </strong>?
+              Are you sure want to delete <strong> <?= $picture['picture_name']; ?> </strong>?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary-native" data-dismiss="modal">No, keep Picture</button>
