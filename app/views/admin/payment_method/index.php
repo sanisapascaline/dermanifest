@@ -33,11 +33,32 @@
             <a href="<?= ADMINURL; ?>/payment_method/update/<?= $pay_method['id_payment_method']; ?>" class="btn btn-primary">
               <span><i class="fa-regular fa-pen-to-square me-1"></i></span>Update
             </a>
-            <a class="btn btn-danger">
+            <a class="btn btn-danger" data-toggle="modal" data-target="#modal-<?= $pay_method['id_payment_method']; ?>">
               <span><i class="fa-regular fa-trash-can me-1"></i></span>Delete
             </a>
           </td>
-        </tr> 
+        </tr>
+        
+        <!-- MODAL DELETE PAYMENT METHOD -->
+        <div class="modal fade" id="modal-<?= $pay_method['id_payment_method']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Payment Method</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure want to delete <strong> <?= $pay_method['payment_service']; ?> - <?= $pay_method['account_name']; ?> </strong>?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary-native" data-dismiss="modal">Cancel, keep Payment Method</button>
+                <a type="button" href="<?= ADMINURL; ?>/payment_method/delete/<?= $pay_method['id_payment_method']; ?>" class="btn btn-primary-native">Yes, delete Payment Method</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <?php endforeach;?>
       </tbody>
     </table>
