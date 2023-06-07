@@ -4,7 +4,7 @@
   <div>
     <?php Flasher::flash(); ?>
   </div>
-  <form action="#" method="post">
+  <form action="<?= ADMINURL; ?>/payment_method/updatepaymentmethod" method="post">
   <div class="form-group mb-3">
       <label class="form-label">Id Payment Method</label>
       <input type="text" class="form-control" value="<?= $data['payment_method']['id_payment_method']; ?>" disabled required>
