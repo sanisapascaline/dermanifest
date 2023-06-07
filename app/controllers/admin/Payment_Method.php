@@ -52,5 +52,18 @@ class Payment_Method extends Controller {
       exit;
     }
   }
+
+  public function updatePaymentMethod()
+  {
+    if ($this->model('Payment_Method_model')->updateDataPaymentMethod($_POST) > 0) {
+      Flasher::setFlash('Success.', 'Payment Method with Id: <strong>' . $_POST['id_payment_method'] . '</strong> has been updated.', 'success');      
+      header('Location:' . ADMINURL .'/payment_method');
+      exit;
+    } else {
+      Flasher::setFlash('Error.', 'Failed to update Payment Method.', 'danger');
+      header('Location: ' . ADMINURL . '/payment_method/update/' . $_POST['id_payment_method']);
+      exit;
+    }
+  }
 }
 ?>
