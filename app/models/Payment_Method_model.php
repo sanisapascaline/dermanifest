@@ -50,5 +50,15 @@ class Payment_Method_model {
 
 		return $this->db->rowCount();
   }
+
+  public function deleteDataPaymentMethod($id)
+  {
+    $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_payment_method = :id_payment_method');
+		$this->db->bind('id_payment_method', $id);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+  }
 }
 ?>
