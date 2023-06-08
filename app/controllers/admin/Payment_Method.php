@@ -65,5 +65,19 @@ class Payment_Method extends Controller {
       exit;
     }
   }
+
+  public function delete($id)
+  {
+    $row = $this->model('Payment_Method_model')->getPaymentMethodById($id);
+    if ($this->model('Payment_Method_model')->deleteDataPaymentMethod($id) > 0) {
+      Flasher::setFlash('Success.', 'Payment Method: <strong>' . $row['payment_service'] . ' - ' . $row['account_name'] . '</strong> has been deleted', 'success');
+      header('Location: ' . ADMINURL . '/payment_method');
+      exit;
+    } else {
+      Flasher::setFlash('Error.', 'Failed to delete Payment Method', 'danger');
+      header('Location: ' . ADMINURL . '/payment_method');
+      exit;
+    }
+  }
 }
 ?>
